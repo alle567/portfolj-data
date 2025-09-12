@@ -1,0 +1,238 @@
+/* src/app/(app)/account/account.module.css */
+
+/* Keep everything scoped to the account page */
+.wrap {
+}
+
+/* Hide Clerk’s internal navbar/hamburger */
+.wrap
+  :global(
+    .cl-userProfile-root
+      :is(
+        .cl-navbar,
+        .cl-navbarMobileMenuButton,
+        .cl-navbarMobileMenu,
+        [class*="navbar"]
+      )
+  ),
+.wrap
+  :global(
+    .cl-userProfile
+      :is(
+        .cl-navbar,
+        .cl-navbarMobileMenuButton,
+        .cl-navbarMobileMenu,
+        [class*="navbar"]
+      )
+  ) {
+  display: none !important;
+}
+
+/* Make the card a single-column layout and center it */
+.wrap :global(.cl-userProfile-root .cl-card),
+.wrap :global(.cl-userProfile .cl-card) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  max-width: 100% !important; /* ⬅️ was 720px — this caused overflow on small screens */
+  display: flex !important; /* kill legacy grid */
+  flex-direction: column !important;
+  overflow-x: hidden !important; /* no sideways scrollbars */
+  box-sizing: border-box;
+}
+
+/* Let main content flex so footer sits at the bottom */
+.wrap :global(.cl-userProfile-root .cl-content),
+.wrap :global(.cl-userProfile .cl-content) {
+  flex: 1 1 auto !important;
+}
+
+/* Footer full width, bottom, centered */
+.wrap :global(.cl-userProfile-root .cl-footer),
+.wrap :global(.cl-userProfile .cl-footer) {
+  order: 999 !important;
+  margin-top: auto !important;
+  width: 100% !important;
+  align-self: stretch !important;
+  text-align: center;
+  grid-column: 1 / -1 !important;
+  position: static !important;
+}
+
+/* ------- TABS: center on desktop, no-squish on mobile ------- */
+
+/* Tab list container: general rules */
+.wrap
+  :global(
+    .cl-userProfile-root
+      :is(.cl-tabs, [class*="Tabs"])
+      :is(.cl-tabsList, [class*="tabsList"])
+  ),
+.wrap
+  :global(
+    .cl-userProfile
+      :is(.cl-tabs, [class*="Tabs"])
+      :is(.cl-tabsList, [class*="tabsList"])
+  ) {
+  display: flex !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+/* Tab triggers should not shrink text */
+.wrap
+  :global(.cl-userProfile-root :is(.cl-tabsTrigger, [class*="tabsTrigger"])),
+.wrap :global(.cl-userProfile :is(.cl-tabsTrigger, [class*="tabsTrigger"])) {
+  flex: 0 0 auto !important;
+  min-width: max-content !important; /* prevent label squish */
+  padding: 0.5rem 0.75rem !important;
+}
+
+/* Desktop/tablet: center the tab row and allow wrapping */
+@media (min-width: 641px) {
+  .wrap
+    :global(
+      .cl-userProfile-root
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ),
+  .wrap
+    :global(
+      .cl-userProfile
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ) {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Small screens: horizontal scroll instead of squeezing */
+@media (max-width: 640.98px) {
+  .wrap
+    :global(
+      .cl-userProfile-root
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ),
+  .wrap
+    :global(
+      .cl-userProfile
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ) {
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    scroll-snap-type: x proximity !important;
+    padding-bottom: 0.25rem !important; /* room for scrollbar */
+  }
+
+  .wrap
+    :global(.cl-userProfile-root :is(.cl-tabsTrigger, [class*="tabsTrigger"])),
+  .wrap :global(.cl-userProfile :is(.cl-tabsTrigger, [class*="tabsTrigger"])) {
+    scroll-snap-align: center !important;
+  }
+}
+
+/* Mobile/desktop scroll behavior for page content */
+.accountScrollbox {
+  height: calc(
+    100dvh - var(--app-topbar-h, 56px) - var(--account-tabs-h, 40px) -
+      env(safe-area-inset-bottom, 0px) - var(--account-scroll-gap, 12px)
+  ) !important;
+  scrollbar-gutter: stable both-edges;
+}
+@media (min-width: 768px) {
+  .accountScrollbox {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+/* Optional: square-ish scrollbars for the page scrollbox (scoped) */
+.wrap
+  :global(
+    .cl-userProfile-root :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar,
+.wrap
+  :global(
+    .cl-userProfile :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.wrap
+  :global(
+    .cl-userProfile-root :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar-thumb,
+.wrap
+  :global(
+    .cl-userProfile :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar-thumb {
+  border-radius: 0 !important;
+  background-clip: padding-box;
+  border: 3px solid transparent;
+}
+
+/* Fluid widths so nothing overflows */
+.wrap :global(.cl-userProfile-root .cl-card),
+.wrap :global(.cl-userProfile .cl-card),
+.wrap :global(.cl-userProfile-root .cl-content),
+.wrap :global(.cl-userProfile .cl-content),
+.wrap :global(.cl-userProfile-root .cl-page),
+.wrap :global(.cl-userProfile .cl-page),
+.wrap :global(.cl-userProfile-root .cl-pageScrollBox),
+.wrap :global(.cl-userProfile .cl-pageScrollBox) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.wrap :global(.cl-header),
+.wrap :global(.cl-page),
+.wrap :global(.cl-content),
+.wrap :global(.cl-pageScrollBox),
+.wrap :global(.cl-profileSection),
+.wrap :global(.cl-profileSectionContent),
+.wrap :global(.cl-formField),
+.wrap :global(.cl-formFieldInput) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Inputs/sections sometimes carry a fixed min-width in themes */
+.wrap :global(.cl-formField),
+.wrap :global(.cl-formFieldInput),
+.wrap :global(.cl-profileSectionContent),
+.wrap :global(.cl-scrollBox) {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Hide "Secured by Clerk" on mobile only */
+@media (max-width: 767.98px) {
+  .wrap :global(.cl-userProfile-root .cl-footer),
+  .wrap :global(.cl-userProfile .cl-footer) {
+    display: none !important;
+  }
+  .wrap :global(.cl-userProfile-root a[href*="clerk.com"]),
+  .wrap :global(.cl-userProfile a[href*="clerk.com"]) {
+    display: none !important;
+  }
+}
+
+/* Wider card on large desktops (still centered) */
+@media (min-width: 768px) {
+  .wrap :global(.cl-userProfile-root .cl-card),
+  .wrap :global(.cl-userProfile .cl-card) {
+    max-width: clamp(640px, calc(100vw - 2rem), 1280px) !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}

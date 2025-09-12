@@ -1,0 +1,5298 @@
+# project.txt
+# root: /Users/alexandersoderberg/Documents/portfolj-data
+# selected files: 58
+# css mode: include
+
+This is the file .gitignore =
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+
+This is the file components.json =
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "iconLibrary": "lucide"
+}
+
+This is the file next-env.d.ts =
+/// <reference types="next" />
+/// <reference types="next/image-types/global" />
+
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
+
+
+This is the file next.config.ts =
+export default {
+  async rewrites() {
+    return [
+      {
+        source: "/clerk/:path*",
+        destination: "https://frank-gull-9.clerk.accounts.dev/:path*",
+      },
+    ];
+  },
+};
+
+
+This is the file package.json =
+{
+  "name": "portfolj-data",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.31.1",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.7",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.2.6",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.539.0",
+    "next": "15.4.6",
+    "next-themes": "^0.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
+    "stripe": "^18.4.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.7",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
+}
+
+
+This is the file postcss.config.mjs =
+const config = {
+  plugins: ["@tailwindcss/postcss"],
+};
+
+export default config;
+
+
+This is the file public/file.svg =
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+
+This is the file public/globe.svg =
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+
+This is the file public/next.svg =
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+
+This is the file public/vercel.svg =
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+
+This is the file public/window.svg =
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+
+This is the file README.md =
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+This is the file src/app/(app)/account/[[...rest]]/account.module.css =
+/* src/app/(app)/account/account.module.css */
+
+/* Keep everything scoped to the account page */
+.wrap {
+}
+
+/* Hide Clerk’s internal navbar/hamburger */
+.wrap
+  :global(
+    .cl-userProfile-root
+      :is(
+        .cl-navbar,
+        .cl-navbarMobileMenuButton,
+        .cl-navbarMobileMenu,
+        [class*="navbar"]
+      )
+  ),
+.wrap
+  :global(
+    .cl-userProfile
+      :is(
+        .cl-navbar,
+        .cl-navbarMobileMenuButton,
+        .cl-navbarMobileMenu,
+        [class*="navbar"]
+      )
+  ) {
+  display: none !important;
+}
+
+/* Make the card a single-column layout and center it */
+.wrap :global(.cl-userProfile-root .cl-card),
+.wrap :global(.cl-userProfile .cl-card) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  max-width: 100% !important; /* ⬅️ was 720px — this caused overflow on small screens */
+  display: flex !important; /* kill legacy grid */
+  flex-direction: column !important;
+  overflow-x: hidden !important; /* no sideways scrollbars */
+  box-sizing: border-box;
+}
+
+/* Let main content flex so footer sits at the bottom */
+.wrap :global(.cl-userProfile-root .cl-content),
+.wrap :global(.cl-userProfile .cl-content) {
+  flex: 1 1 auto !important;
+}
+
+/* Footer full width, bottom, centered */
+.wrap :global(.cl-userProfile-root .cl-footer),
+.wrap :global(.cl-userProfile .cl-footer) {
+  order: 999 !important;
+  margin-top: auto !important;
+  width: 100% !important;
+  align-self: stretch !important;
+  text-align: center;
+  grid-column: 1 / -1 !important;
+  position: static !important;
+}
+
+/* ------- TABS: center on desktop, no-squish on mobile ------- */
+
+/* Tab list container: general rules */
+.wrap
+  :global(
+    .cl-userProfile-root
+      :is(.cl-tabs, [class*="Tabs"])
+      :is(.cl-tabsList, [class*="tabsList"])
+  ),
+.wrap
+  :global(
+    .cl-userProfile
+      :is(.cl-tabs, [class*="Tabs"])
+      :is(.cl-tabsList, [class*="tabsList"])
+  ) {
+  display: flex !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+/* Tab triggers should not shrink text */
+.wrap
+  :global(.cl-userProfile-root :is(.cl-tabsTrigger, [class*="tabsTrigger"])),
+.wrap :global(.cl-userProfile :is(.cl-tabsTrigger, [class*="tabsTrigger"])) {
+  flex: 0 0 auto !important;
+  min-width: max-content !important; /* prevent label squish */
+  padding: 0.5rem 0.75rem !important;
+}
+
+/* Desktop/tablet: center the tab row and allow wrapping */
+@media (min-width: 641px) {
+  .wrap
+    :global(
+      .cl-userProfile-root
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ),
+  .wrap
+    :global(
+      .cl-userProfile
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ) {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Small screens: horizontal scroll instead of squeezing */
+@media (max-width: 640.98px) {
+  .wrap
+    :global(
+      .cl-userProfile-root
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ),
+  .wrap
+    :global(
+      .cl-userProfile
+        :is(.cl-tabs, [class*="Tabs"])
+        :is(.cl-tabsList, [class*="tabsList"])
+    ) {
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    scroll-snap-type: x proximity !important;
+    padding-bottom: 0.25rem !important; /* room for scrollbar */
+  }
+
+  .wrap
+    :global(.cl-userProfile-root :is(.cl-tabsTrigger, [class*="tabsTrigger"])),
+  .wrap :global(.cl-userProfile :is(.cl-tabsTrigger, [class*="tabsTrigger"])) {
+    scroll-snap-align: center !important;
+  }
+}
+
+/* Mobile/desktop scroll behavior for page content */
+.accountScrollbox {
+  height: calc(
+    100dvh - var(--app-topbar-h, 56px) - var(--account-tabs-h, 40px) -
+      env(safe-area-inset-bottom, 0px) - var(--account-scroll-gap, 12px)
+  ) !important;
+  scrollbar-gutter: stable both-edges;
+}
+@media (min-width: 768px) {
+  .accountScrollbox {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+/* Optional: square-ish scrollbars for the page scrollbox (scoped) */
+.wrap
+  :global(
+    .cl-userProfile-root :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar,
+.wrap
+  :global(
+    .cl-userProfile :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.wrap
+  :global(
+    .cl-userProfile-root :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar-thumb,
+.wrap
+  :global(
+    .cl-userProfile :is(.cl-pageScrollBox, [class*="pageScrollBox"])
+  )::-webkit-scrollbar-thumb {
+  border-radius: 0 !important;
+  background-clip: padding-box;
+  border: 3px solid transparent;
+}
+
+/* Fluid widths so nothing overflows */
+.wrap :global(.cl-userProfile-root .cl-card),
+.wrap :global(.cl-userProfile .cl-card),
+.wrap :global(.cl-userProfile-root .cl-content),
+.wrap :global(.cl-userProfile .cl-content),
+.wrap :global(.cl-userProfile-root .cl-page),
+.wrap :global(.cl-userProfile .cl-page),
+.wrap :global(.cl-userProfile-root .cl-pageScrollBox),
+.wrap :global(.cl-userProfile .cl-pageScrollBox) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.wrap :global(.cl-header),
+.wrap :global(.cl-page),
+.wrap :global(.cl-content),
+.wrap :global(.cl-pageScrollBox),
+.wrap :global(.cl-profileSection),
+.wrap :global(.cl-profileSectionContent),
+.wrap :global(.cl-formField),
+.wrap :global(.cl-formFieldInput) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Inputs/sections sometimes carry a fixed min-width in themes */
+.wrap :global(.cl-formField),
+.wrap :global(.cl-formFieldInput),
+.wrap :global(.cl-profileSectionContent),
+.wrap :global(.cl-scrollBox) {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Hide "Secured by Clerk" on mobile only */
+@media (max-width: 767.98px) {
+  .wrap :global(.cl-userProfile-root .cl-footer),
+  .wrap :global(.cl-userProfile .cl-footer) {
+    display: none !important;
+  }
+  .wrap :global(.cl-userProfile-root a[href*="clerk.com"]),
+  .wrap :global(.cl-userProfile a[href*="clerk.com"]) {
+    display: none !important;
+  }
+}
+
+/* Wider card on large desktops (still centered) */
+@media (min-width: 768px) {
+  .wrap :global(.cl-userProfile-root .cl-card),
+  .wrap :global(.cl-userProfile .cl-card) {
+    max-width: clamp(640px, calc(100vw - 2rem), 1280px) !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
+
+This is the file src/app/(app)/account/[[...rest]]/page.tsx =
+// src/app/(app)/account/page.tsx
+"use client";
+
+import { UserProfile } from "@clerk/nextjs";
+import styles from "./account.module.css";
+
+export default function AccountPage() {
+  return (
+    <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8 min-w-0">
+      <div className={`${styles.wrap} py-4 sm:py-6 min-w-0`}>
+        <UserProfile
+          routing="path"
+          path="/account"
+          appearance={{
+            elements: {
+              // hide Clerk’s internal nav/sidebar
+              navbar: "hidden",
+              navbarContainer: "hidden",
+              navbarContent: "hidden",
+              navbarItem: "hidden",
+              navbarMobileMenuButton: "hidden",
+              navbarMobileMenu: "hidden",
+
+              // layout/centering
+              rootBox: "w-full",
+              card: "mx-auto w-full max-w-[720px]",
+              content: "p-0",
+              page: "p-0",
+
+              // keep header text centered
+              headerTitle: "text-center",
+              headerSubtitle: "text-center",
+
+              // Mobile: internal scroll; Desktop: let page scroll
+              pageScrollBox: [
+                styles.accountScrollbox, // height calc (module)
+                "overflow-y-auto pb-24 sm:pb-28",
+                "md:h-auto md:max-h-none md:overflow-visible md:pb-0",
+              ].join(" "),
+            },
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+
+This is the file src/app/(app)/billing/page.tsx =
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
+export default function BillingPage() {
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <div className="px-4 sm:px-6 lg:px-8 py-6 space-y-2">
+      <h1 className="text-xl font-semibold tracking-tight">Billing</h1>
+      <p className="text-sm text-muted-foreground">
+        Manage your subscription, payment method, and invoices.
+      </p>
+      <Button
+        disabled={loading}
+        onClick={async () => {
+          try {
+            setLoading(true);
+            const r = await fetch("/api/billing/portal", { method: "POST" });
+            const j = await r.json();
+            if (j?.url) window.location.href = j.url;
+          } finally {
+            setLoading(false);
+          }
+        }}
+      >
+        {loading ? "Opening…" : "Open billing portal"}
+      </Button>
+    </div>
+  );
+}
+
+
+This is the file src/app/(app)/dashboard/page.tsx =
+// src/app/(app)/dashboard/page.tsx
+import { auth, currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Progress } from "@/components/ui/progress";
+import {
+  Table,
+  TableHeader,
+  TableHead,
+  TableRow,
+  TableBody,
+  TableCell,
+} from "@/components/ui/table";
+import { Plus, Upload, Filter, ArrowRight } from "lucide-react";
+
+export default async function PrivateHome() {
+  const { userId } = await auth();
+  if (!userId) redirect("/login?redirect_url=/dashboard");
+
+  const user = await currentUser();
+  const name =
+    user?.firstName ||
+    (user?.publicMetadata as any)?.name ||
+    (user?.unsafeMetadata as any)?.name ||
+    user?.emailAddresses?.[0]?.emailAddress ||
+    "there";
+
+  return (
+    <div className="px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      {/* Header */}
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-xl font-semibold tracking-tight">
+            Welcome, {name} 👋
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Here’s a quick snapshot of your account.
+          </p>
+        </div>
+        <div className="hidden sm:flex gap-2">
+          <Link href="/screens/new" className={cn(buttonVariants())}>
+            <Plus className="h-4 w-4 mr-2" />
+            New screen
+          </Link>
+          <Link
+            href="/import"
+            className={cn(buttonVariants({ variant: "outline" }))}
+          >
+            <Upload className="h-4 w-4 mr-2" />
+            Import data
+          </Link>
+        </div>
+      </div>
+
+      {/* KPI cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <Card>
+          <CardHeader className="pb-2">
+            <CardDescription>Total balance</CardDescription>
+            <CardTitle className="text-2xl">SEK 245,120</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <Badge variant="secondary">+1.8% today</Badge>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardDescription>Daily P/L</CardDescription>
+            <CardTitle className="text-2xl">SEK 4,320</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="space-y-2">
+              <Progress value={62} />
+              <p className="text-xs text-muted-foreground">62% of daily goal</p>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardDescription>Holdings</CardDescription>
+            <CardTitle className="text-2xl">18</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <p className="text-xs text-muted-foreground">3 watchlist alerts</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardDescription>Risk</CardDescription>
+            <CardTitle className="text-2xl">Moderate</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <Badge variant="outline">VaR 95%: 2.4%</Badge>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Quick actions (mobile) */}
+      <div className="sm:hidden grid grid-cols-2 gap-2">
+        <Link href="/screens/new" className={cn(buttonVariants())}>
+          <Plus className="h-4 w-4 mr-2" />
+          New screen
+        </Link>
+        <Link
+          href="/import"
+          className={cn(buttonVariants({ variant: "outline" }))}
+        >
+          <Upload className="h-4 w-4 mr-2" />
+          Import
+        </Link>
+      </div>
+
+      {/* Recent activity */}
+      <Card>
+        <CardHeader className="pb-2">
+          <div className="flex items-center justify-between gap-2">
+            <div>
+              <CardTitle className="text-base">Recent activity</CardTitle>
+              <CardDescription>Last 5 events</CardDescription>
+            </div>
+            <Link
+              href="/activity"
+              className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+            >
+              View all <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center gap-2 mb-3">
+            <Filter className="h-4 w-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">
+              Showing trades, deposits, alerts
+            </span>
+          </div>
+          <div className="rounded-md border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[140px]">Date</TableHead>
+                  <TableHead>Event</TableHead>
+                  <TableHead className="text-right">Amount</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>2025-08-18</TableCell>
+                  <TableCell>Bought AAPL (10 @ 190.10)</TableCell>
+                  <TableCell className="text-right">- SEK 19,010</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>2025-08-17</TableCell>
+                  <TableCell>Sold SAND.ST (120 @ 197.40)</TableCell>
+                  <TableCell className="text-right">+ SEK 23,688</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>2025-08-16</TableCell>
+                  <TableCell>Deposit</TableCell>
+                  <TableCell className="text-right">+ SEK 10,000</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>2025-08-16</TableCell>
+                  <TableCell>Alert: “RSI &lt; 30” for VOLV-B.ST</TableCell>
+                  <TableCell className="text-right">—</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>2025-08-15</TableCell>
+                  <TableCell>Dividend: SCA B</TableCell>
+                  <TableCell className="text-right">+ SEK 420</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Account section */}
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-base">Your account</CardTitle>
+          <CardDescription>Manage plan and settings</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="size-10 rounded-md bg-muted" />
+            <div>
+              <div className="font-medium">{name}</div>
+              <div className="text-xs text-muted-foreground">
+                {user?.emailAddresses?.[0]?.emailAddress}
+              </div>
+            </div>
+          </div>
+          <Separator className="hidden sm:block" orientation="vertical" />
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="secondary">Pro trial</Badge>
+            <Badge variant="outline">2 seats</Badge>
+          </div>
+          <div className="sm:ml-auto flex gap-2">
+            <Link
+              href="/settings"
+              className={cn(buttonVariants({ variant: "outline" }))}
+            >
+              Settings
+            </Link>
+            <Link href="/billing" className={cn(buttonVariants())}>
+              Manage plan
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+
+This is the file src/app/(app)/layout.tsx =
+// src/app/(app)/layout.tsx
+import AppSidebar from "@/components/Navigation/AppSidebar";
+import AppTopbar from "@/components/Navigation/AppTopbar";
+
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="h-dvh w-full">
+      <div className="grid md:grid-cols-[16rem_1fr] h-full">
+        <AppSidebar />
+        <div className="flex min-w-0 min-h-0 flex-col">
+          <AppTopbar /> {/* h-14 → 56px */}
+          {/* ⬇️ main must be allowed to shrink and hide horizontal overflow */}
+          <main className="flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden">
+            {children}
+          </main>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+This is the file src/app/(public)/forgot-password/page.tsx =
+// app/(public)/forgot-password/page.tsx
+"use client";
+
+import * as React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useClerk, useSignIn } from "@clerk/nextjs";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+
+function safeRedirect(path?: string | null) {
+  if (!path || typeof path !== "string") return "/";
+  if (!path.startsWith("/") || path.startsWith("//")) return "/";
+  return path;
+}
+
+export default function ForgotPasswordPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = safeRedirect(
+    searchParams?.get("redirect_url") || searchParams?.get("redirectTo") || "/"
+  );
+
+  const { isLoaded, signIn } = useSignIn();
+  const { setActive } = useClerk();
+
+  const [step, setStep] = React.useState<"email" | "code" | "reset">("email");
+  const [email, setEmail] = React.useState("");
+  const [code, setCode] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [pending, setPending] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+
+  async function sendReset(e: React.FormEvent) {
+    e.preventDefault();
+    if (!isLoaded) return;
+    setError(null);
+    setPending(true);
+    try {
+      await signIn.create({
+        strategy: "reset_password_email_code",
+        identifier: email,
+      });
+      setStep("code");
+    } catch (err: any) {
+      setError(
+        err?.errors?.[0]?.longMessage ||
+          err?.message ||
+          "Failed to send reset code."
+      );
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function verifyCode(e: React.FormEvent) {
+    e.preventDefault();
+    if (!isLoaded) return;
+    setError(null);
+    setPending(true);
+    try {
+      await signIn.attemptFirstFactor({
+        strategy: "reset_password_email_code",
+        code,
+      });
+      setStep("reset");
+    } catch (err: any) {
+      setError(
+        err?.errors?.[0]?.longMessage ||
+          err?.message ||
+          "Invalid or expired code."
+      );
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function setNewPassword(e: React.FormEvent) {
+    e.preventDefault();
+    if (!isLoaded) return;
+    setError(null);
+    setPending(true);
+    try {
+      const res = await signIn.resetPassword({
+        password,
+        signOutOfOtherSessions: true,
+      });
+      if (res.status === "complete") {
+        await setActive({ session: res.createdSessionId });
+        router.push(redirectTo);
+      } else {
+        setError("Could not complete password reset.");
+      }
+    } catch (err: any) {
+      setError(
+        err?.errors?.[0]?.longMessage ||
+          err?.message ||
+          "Could not reset password."
+      );
+    } finally {
+      setPending(false);
+    }
+  }
+  return (
+    <div className="mx-auto grid min-h-[70vh] max-w-md place-items-center px-4 py-16 sm:py-24">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle className="text-xl">Reset your password</CardTitle>
+          <CardDescription>We’ll email you a code to reset it.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {step === "email" && (
+            <form onSubmit={sendReset} className="space-y-4" noValidate>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={pending || !email}
+              >
+                {pending ? "Sending…" : "Send reset code"}
+              </Button>
+              {error && (
+                <p role="alert" className="text-sm text-destructive">
+                  {error}
+                </p>
+              )}
+            </form>
+          )}
+
+          {step === "code" && (
+            <form onSubmit={verifyCode} className="space-y-4">
+              <div className="space-y-2">
+                <Label>Enter the 6-digit code</Label>
+                <InputOTP maxLength={6} value={code} onChange={setCode}>
+                  <InputOTPGroup>
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <InputOTPSlot key={i} index={i} />
+                    ))}
+                  </InputOTPGroup>
+                </InputOTP>
+              </div>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={pending || code.length !== 6}
+              >
+                {pending ? "Verifying…" : "Verify code"}
+              </Button>
+              {error && (
+                <p role="alert" className="text-sm text-destructive">
+                  {error}
+                </p>
+              )}
+            </form>
+          )}
+
+          {step === "reset" && (
+            <form onSubmit={setNewPassword} className="space-y-4" noValidate>
+              <div className="space-y-2">
+                <Label htmlFor="password">New password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={pending || password.length < 10}
+              >
+                {pending ? "Saving…" : "Set new password"}
+              </Button>
+              {error && (
+                <p role="alert" className="text-sm text-destructive">
+                  {error}
+                </p>
+              )}
+            </form>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+
+This is the file src/app/(public)/layout.tsx =
+import NavMenu from "@/components/Navigation/Navbar";
+import Footer from "@/components/Navigation/Footer";
+
+export default function PublicLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      <NavMenu />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </>
+  );
+}
+
+
+This is the file src/app/(public)/login/page.tsx =
+// app/(public)/login/page.tsx
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useClerk, useSignIn } from "@clerk/nextjs";
+import { Mail, Lock, ArrowRight, Github } from "lucide-react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+
+function safeRedirect(path?: string | null) {
+  if (!path || typeof path !== "string") return "/dashboard";
+  if (!path.startsWith("/") || path.startsWith("//")) return "/dashboard";
+  return path;
+}
+
+export default function LoginPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = safeRedirect(
+    searchParams?.get("redirect_url") ||
+      searchParams?.get("redirectTo") ||
+      "/dashboard"
+  );
+
+  const { isLoaded, signIn } = useSignIn();
+  const { setActive } = useClerk();
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [pending, setPending] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!isLoaded) return;
+    setError(null);
+    setPending(true);
+    try {
+      const res = await signIn.create({ identifier: email, password });
+      if (res.status === "complete") {
+        await setActive({ session: res.createdSessionId });
+        router.push(redirectTo);
+      } else {
+        setError("Additional steps required.");
+      }
+    } catch (err: any) {
+      setError(
+        err?.errors?.[0]?.longMessage || err?.message || "Invalid credentials."
+      );
+    } finally {
+      setPending(false);
+    }
+  }
+
+  function oauth(provider: "oauth_github" | "oauth_google") {
+    if (!isLoaded) return;
+    signIn.authenticateWithRedirect({
+      strategy: provider,
+      redirectUrl: "/sso-callback",
+      redirectUrlComplete: redirectTo,
+    });
+  }
+
+  return (
+    <div className="mx-auto grid min-h-[70vh] max-w-md place-items-center px-4 py-16 sm:py-24">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle className="text-xl">Sign in</CardTitle>
+          <CardDescription>
+            Welcome back. Access your portfolio and screens.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <form onSubmit={onSubmit} className="space-y-4" noValidate>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <div className="relative">
+                <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 opacity-60" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  className="pl-9"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <div className="relative">
+                <Lock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 opacity-60" />
+                <Input
+                  id="password"
+                  type="password"
+                  className="pl-9"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="flex justify-end">
+                <Link
+                  href="/forgot-password"
+                  className="text-xs text-muted-foreground hover:text-foreground/80 hover:underline underline-offset-4 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={pending || !email || !password}
+            >
+              {pending ? (
+                "Signing in…"
+              ) : (
+                <>
+                  Continue <ArrowRight className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+
+            {error && (
+              <p role="alert" className="text-sm text-destructive">
+                {error}
+              </p>
+            )}
+          </form>
+
+          <div className="my-4 flex items-center gap-3">
+            <Separator className="flex-1" />
+            <span className="text-xs text-muted-foreground">or</span>
+            <Separator className="flex-1" />
+          </div>
+
+          <div className="grid gap-3">
+            <Button
+              type="button"
+              variant="outline"
+              className="h-10 w-full justify-center gap-2"
+              onClick={() => oauth("oauth_github")}
+            >
+              <Github className="h-4 w-4 shrink-0" />
+              <span className="truncate">Continue with GitHub</span>
+            </Button>
+
+            <Button
+              type="button"
+              variant="outline"
+              className="h-10 w-full justify-center gap-2"
+              onClick={() => oauth("oauth_google")}
+            >
+              <span className="font-medium">G</span>
+              <span className="truncate">Continue with Google</span>
+            </Button>
+          </div>
+
+          <p className="text-center text-sm text-muted-foreground">
+            New here?{" "}
+            <Link
+              href={`/signup?redirect_url=${encodeURIComponent(redirectTo)}`}
+              className="font-medium underline underline-offset-4"
+            >
+              Create an account
+            </Link>
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+
+This is the file src/app/(public)/page.tsx =
+// app/(public)/page.tsx
+import Link from "next/link";
+import {
+  ArrowRight,
+  BarChart3,
+  LineChart,
+  Wallet,
+  Bell,
+  Database,
+  ShieldCheck,
+  TrendingUp,
+  TrendingDown,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+import { Input } from "@/components/ui/input";
+
+export default function Home() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Hero */}
+      <section className="py-16 sm:py-24">
+        <Badge className="mb-4">Early access</Badge>
+        <h1 className="font-sans text-3xl font-semibold tracking-tight sm:text-5xl">
+          Fundamental stock analysis & portfolio tracking.
+        </h1>
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          Screen companies by real fundamentals, track your portfolio over time,
+          and get alerting you control. APIs coming soon for programmatic
+          access.
+        </p>
+
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <Button asChild>
+            <Link href="/signup">Get started</Link>
+          </Button>
+          <Button asChild variant="ghost">
+            <Link href="/pricing">
+              View pricing
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+
+        {/* Quick metrics / watchlist preview */}
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Today’s Moves (demo)</CardTitle>
+              <CardDescription>Watchlist snapshot</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="divide-y">
+                {[
+                  { t: "AAPL", n: "Apple", c: "+1.8%", up: true },
+                  { t: "MSFT", n: "Microsoft", c: "+0.9%", up: true },
+                  { t: "NVDA", n: "NVIDIA", c: "-1.2%", up: false },
+                  { t: "AMZN", n: "Amazon", c: "+0.4%", up: true },
+                ].map((row) => (
+                  <li
+                    key={row.t}
+                    className="flex items-center justify-between py-2"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm">{row.t}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {row.n}
+                      </span>
+                    </div>
+                    <span
+                      className={`inline-flex items-center gap-1 text-sm ${
+                        row.up
+                          ? "text-green-600 dark:text-green-500"
+                          : "text-red-600 dark:text-red-500"
+                      }`}
+                    >
+                      {row.up ? (
+                        <TrendingUp className="h-4 w-4" />
+                      ) : (
+                        <TrendingDown className="h-4 w-4" />
+                      )}
+                      {row.c}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">
+                Fundamentals at a glance
+              </CardTitle>
+              <CardDescription>Example metrics (trailing)</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <dl className="grid grid-cols-2 gap-4 text-sm">
+                <Metric label="Revenue growth" value="+12.4%" good />
+                <Metric label="Gross margin" value="58.1%" good />
+                <Metric label="Operating margin" value="18.9%" />
+                <Metric label="FCF yield" value="3.7%" />
+              </dl>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Data for illustration. Connect your portfolio to see real
+                numbers.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <Separator />
+
+      {/* Features */}
+      <section className="py-14">
+        <h2 className="font-sans text-xl font-semibold tracking-tight">
+          What you can do
+        </h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <FeatureCard
+            icon={<BarChart3 className="h-5 w-5" />}
+            title="Fundamental screens"
+            desc="Filter by valuation, growth, profitability, quality—save and reuse screens."
+          />
+          <FeatureCard
+            icon={<Wallet className="h-5 w-5" />}
+            title="Portfolio tracking"
+            desc="Track holdings, P/L, dividends, and allocation drift across accounts."
+          />
+          <FeatureCard
+            icon={<LineChart className="h-5 w-5" />}
+            title="Compare companies"
+            desc="Side-by-side charts for revenue, margin, cash flow, and more."
+          />
+          <FeatureCard
+            icon={<Bell className="h-5 w-5" />}
+            title="Alerts you control"
+            desc="Set alerts on price, valuation bands, or metric changes."
+          />
+          <FeatureCard
+            icon={<Database className="h-5 w-5" />}
+            title="Data you can trust"
+            desc="Sane definitions and consistent units; audit fields when you hover."
+          />
+          <FeatureCard
+            icon={<ShieldCheck className="h-5 w-5" />}
+            title="Your data, private"
+            desc="Secure by default with role-based access and export controls."
+          />
+        </div>
+      </section>
+
+      {/* API teaser */}
+      <section className="pb-14">
+        <Card className="overflow-hidden">
+          <CardHeader>
+            <CardTitle>APIs coming soon</CardTitle>
+            <CardDescription>
+              Programmatic access to fundamentals, screens, and your portfolio.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-sm">
+              <code>{`# REST (soon)
+GET /api/v1/fundamentals?ticker=AAPL
+
+# Example response (trimmed)
+{
+  "ticker": "AAPL",
+  "revenue_ttm": 383_000_000_000,
+  "gross_margin_ttm": 0.58,
+  "fcf_ttm": 99_000_000_000
+}`}</code>
+            </pre>
+            <form action="#" className="mt-4 flex max-w-md gap-2">
+              <Input
+                type="email"
+                placeholder="you@example.com"
+                className="h-9"
+              />
+              <Button type="submit" className="h-9">
+                Notify me
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* FAQ */}
+      <section className="pb-14">
+        <h2 className="font-sans text-xl font-semibold tracking-tight">FAQ</h2>
+        <Accordion type="single" collapsible className="mt-6">
+          <AccordionItem value="free">
+            <AccordionTrigger>Is there a free plan?</AccordionTrigger>
+            <AccordionContent>
+              Yes—start free with core screening and a single portfolio. Upgrade
+              for alerts and historical exports.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="broker">
+            <AccordionTrigger>Can I connect my broker?</AccordionTrigger>
+            <AccordionContent>
+              You can import CSVs today; broker connections are on our roadmap
+              based on demand.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="advice">
+            <AccordionTrigger>Is this financial advice?</AccordionTrigger>
+            <AccordionContent>
+              No. We provide tools and data. Investing involves risk—do your own
+              research.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
+
+      {/* Final CTA */}
+      <section className="pb-24">
+        <Card className="border-dashed">
+          <CardContent className="flex flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="font-sans text-lg font-semibold">
+                Ready to analyze smarter?
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Create an account and build your first watchlist in minutes.
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <Button asChild>
+                <Link href="/signup">Get started</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/contact">Talk to us</Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+    </div>
+  );
+}
+
+/* — Helpers — */
+function FeatureCard({
+  icon,
+  title,
+  desc,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <Card>
+      <CardHeader className="flex flex-row items-start gap-3 space-y-0">
+        <span className="rounded-md bg-muted p-2">{icon}</span>
+        <div>
+          <CardTitle className="text-base">{title}</CardTitle>
+          <CardDescription>{desc}</CardDescription>
+        </div>
+      </CardHeader>
+    </Card>
+  );
+}
+
+function Metric({
+  label,
+  value,
+  good,
+}: {
+  label: string;
+  value: string;
+  good?: boolean;
+}) {
+  return (
+    <div>
+      <dt className="text-muted-foreground">{label}</dt>
+      <dd
+        className={`mt-1 font-medium ${
+          good ? "text-foreground" : "text-foreground/90"
+        }`}
+      >
+        {value}
+      </dd>
+    </div>
+  );
+}
+
+
+This is the file src/app/(public)/signup/actions.ts =
+// app/(public)/signup/actions.ts
+"use server";
+
+export type RegisterResult = { ok: true } | { ok: false; error: string };
+
+function passwordMeetsPolicy(pw: string) {
+  const lengthOK = pw.length >= 10;
+  const upperOK = /[A-Z]/.test(pw);
+  const numberOK = /\d/.test(pw);
+  const specialOK = /[^A-Za-z0-9]/.test(pw);
+  return {
+    lengthOK,
+    upperOK,
+    numberOK,
+    specialOK,
+    all: lengthOK && upperOK && numberOK && specialOK,
+  };
+}
+
+export async function register(formData: FormData): Promise<RegisterResult> {
+  const name = String(formData.get("name") || "").trim();
+  const email = String(formData.get("email") || "")
+    .trim()
+    .toLowerCase();
+  const password = String(formData.get("password") || "");
+  const confirm = String(formData.get("confirm") || "");
+  const accepted = String(formData.get("accept") || "") === "on"; // <-- from hidden input
+
+  if (!accepted)
+    return { ok: false, error: "Please accept the Terms and Privacy Policy." };
+  if (!name) return { ok: false, error: "Name is required." };
+  if (!email) return { ok: false, error: "Email is required." };
+  if (password !== confirm)
+    return { ok: false, error: "Passwords do not match." };
+
+  const policy = passwordMeetsPolicy(password);
+  if (!policy.all)
+    return { ok: false, error: "Password does not meet the required policy." };
+
+  // TODO: create user, set secure cookie, redirect("/app")
+  return { ok: true };
+}
+
+
+This is the file src/app/(public)/signup/page.tsx =
+import Link from "next/link";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import SignupForm from "@/components/auth/SignupForm";
+
+export default function SignupPage() {
+  return (
+    <div className="mx-auto grid min-h-[70vh] max-w-md place-items-center px-4 py-16 sm:py-24">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle className="text-xl">Create your account</CardTitle>
+          <CardDescription>
+            Start tracking your portfolio and screens in minutes.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <SignupForm />
+          <p className="text-center text-sm text-muted-foreground">
+            Already have an account?{" "}
+            <Link
+              href="/login"
+              className="font-medium underline underline-offset-4"
+            >
+              Sign in
+            </Link>
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+
+This is the file src/app/api/billing/portal/route.ts =
+// src/app/api/billing/portal/route.ts
+export const runtime = "nodejs";
+
+import { NextResponse } from "next/server";
+import Stripe from "stripe";
+import { auth, currentUser } from "@clerk/nextjs/server";
+
+// ⬇️ remove the apiVersion option
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+export async function POST() {
+  const { userId } = await auth();
+  if (!userId)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const user = await currentUser();
+  const customerId = (user?.privateMetadata as any)?.stripeCustomerId as
+    | string
+    | undefined;
+  if (!customerId) {
+    return NextResponse.json(
+      { error: "No Stripe customer on file" },
+      { status: 400 }
+    );
+  }
+
+  const returnUrl = process.env.NEXT_PUBLIC_APP_URL
+    ? new URL("/dashboard", process.env.NEXT_PUBLIC_APP_URL).toString()
+    : "http://localhost:3000/dashboard";
+
+  const session = await stripe.billingPortal.sessions.create({
+    customer: customerId,
+    return_url: returnUrl,
+  });
+
+  return NextResponse.json({ url: session.url });
+}
+
+
+This is the file src/app/api/webhooks/stripe/route.ts =
+// src/app/api/webhooks/stripe/route.ts
+export const runtime = "nodejs";
+
+import { NextResponse } from "next/server";
+import Stripe from "stripe";
+import { clerkClient } from "@clerk/nextjs/server";
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+export async function POST(req: Request) {
+  const sig = req.headers.get("stripe-signature");
+  if (!sig) {
+    return NextResponse.json(
+      { error: "Missing Stripe signature" },
+      { status: 400 }
+    );
+  }
+
+  const rawBody = await req.text();
+
+  let event: Stripe.Event;
+  try {
+    event = stripe.webhooks.constructEvent(
+      rawBody,
+      sig,
+      process.env.STRIPE_WEBHOOK_SECRET!
+    );
+  } catch (err: any) {
+    return NextResponse.json(
+      {
+        error: `Webhook signature verification failed: ${err?.message ?? err}`,
+      },
+      { status: 400 }
+    );
+  }
+
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    const clerkUserId = session.client_reference_id ?? undefined; // set this when creating Checkout
+    const customerId = (session.customer as string) ?? undefined;
+
+    if (clerkUserId && customerId) {
+      const client = await clerkClient(); // <-- get the client instance
+      await client.users.updateUser(clerkUserId, {
+        privateMetadata: { stripeCustomerId: customerId },
+      });
+    }
+  }
+
+  return NextResponse.json({ ok: true });
+}
+
+
+This is the file src/app/globals.css =
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-plex-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --color-scheme: light;
+  --app-topbar-h: 56px; /* h-14 */
+  --account-tabs-h: 40px; /* h-10 */
+  --account-scroll-gap: 12px;
+  --sidebar-w: 2rem;
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --color-scheme: dark;
+}
+
+html,
+body {
+  transition: background-color 150ms, color 150ms;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+This is the file src/app/layout.tsx =
+import "./globals.css";
+import { IBM_Plex_Mono, Geist } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ClerkProvider } from "@clerk/nextjs";
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-plex-mono",
+});
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const pk = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  if (!pk && process.env.NODE_ENV !== "production") {
+    console.warn("Missing NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY");
+  }
+  return (
+    <ClerkProvider
+      publishableKey={pk}
+      signInUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL || "/login"}
+      signUpUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL || "/signup"}
+      afterSignInUrl={
+        process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL || "/dashboard"
+      }
+      afterSignUpUrl={
+        process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL || "/dashboard"
+      }
+    >
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${plexMono.variable} font-mono antialiased min-h-dvh flex flex-col`}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
+  );
+}
+
+
+This is the file src/app/sso-callback/[[...slug]]/page.tsx =
+// src/app/sso-callback/[[...slug]]/page.tsx
+"use client";
+import { AuthenticateWithRedirectCallback } from "@clerk/nextjs";
+
+export default function Page() {
+  return (
+    <AuthenticateWithRedirectCallback
+      // Always land here after OAuth completes:
+      signInForceRedirectUrl="/dashboard"
+      signUpForceRedirectUrl="/dashboard"
+      // If there's no redirect_url in the URL, use these:
+      signInFallbackRedirectUrl="/dashboard"
+      signUpFallbackRedirectUrl="/dashboard"
+      // Optional: where your auth pages live
+      signInUrl="/login"
+      signUpUrl="/signup"
+    />
+  );
+}
+
+
+This is the file src/components/auth/SignupForm.tsx =
+// src/components/auth/SignupForm.tsx
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useClerk, useSignUp, useSignIn } from "@clerk/nextjs";
+
+import {
+  Github,
+  Mail,
+  Lock,
+  User,
+  Eye,
+  EyeOff,
+  CheckCircle2,
+  Circle,
+  UserPlus,
+  LogIn,
+} from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Popover, PopoverContent } from "@/components/ui/popover";
+import { PopoverAnchor } from "@radix-ui/react-popover";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+
+type ClerkErr = { code?: string; message: string };
+
+function parseClerkError(err: any): ClerkErr {
+  const first = err?.errors?.[0] ?? err;
+  const code = first?.code || first?.error?.code;
+  const long = first?.longMessage || first?.message || err?.message;
+  return { code, message: long || "Something went wrong." };
+}
+
+function safeRedirect(path?: string | null) {
+  if (!path || typeof path !== "string") return "/dashboard";
+  if (!path.startsWith("/") || path.startsWith("//")) return "/dashboard";
+  return path;
+}
+
+const SS_EMAIL = "signup:email";
+const SS_PASSWORD = "signup:password";
+
+export default function SignupForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = safeRedirect(
+    searchParams?.get("redirect_url") ||
+      searchParams?.get("redirectTo") ||
+      "/dashboard"
+  );
+
+  const { isLoaded: isSignUpLoaded, signUp } = useSignUp();
+  const { isLoaded: isSignInLoaded, signIn } = useSignIn();
+  const { setActive } = useClerk();
+
+  // form fields
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirm, setConfirm] = React.useState("");
+  const [agree, setAgree] = React.useState(false);
+
+  // ui state
+  const [showPw, setShowPw] = React.useState(false);
+  const [pwFocused, setPwFocused] = React.useState(false);
+  const [pending, setPending] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+  const [step, setStep] = React.useState<"form" | "code">("form");
+  const [code, setCode] = React.useState("");
+  const [suggestLogin, setSuggestLogin] = React.useState(false);
+
+  // avoid loops after HMR
+  const attemptedFinishRef = React.useRef(false);
+
+  // restore creds if HMR refresh happened on code step
+  React.useEffect(() => {
+    const savedEmail = sessionStorage.getItem(SS_EMAIL);
+    const savedPw = sessionStorage.getItem(SS_PASSWORD);
+    if (savedEmail && !email) setEmail(savedEmail);
+    if (savedPw && !password) setPassword(savedPw);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    if (step === "code") {
+      sessionStorage.setItem(SS_EMAIL, email);
+      sessionStorage.setItem(SS_PASSWORD, password);
+    }
+  }, [step, email, password]);
+
+  // password policy
+  const policy = React.useMemo(() => {
+    const lengthOK = password.length >= 10;
+    const upperOK = /[A-Z]/.test(password);
+    const numberOK = /\d/.test(password);
+    const specialOK = /[^A-Za-z0-9]/.test(password);
+    return {
+      lengthOK,
+      upperOK,
+      numberOK,
+      specialOK,
+      all: lengthOK && upperOK && numberOK && specialOK,
+    };
+  }, [password]);
+
+  const mismatch = confirm.length > 0 && password !== confirm;
+  const showPolicy = pwFocused || password.length > 0;
+
+  // enable/disable submit
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const [canSubmit, setCanSubmit] = React.useState(false);
+  const recompute = React.useCallback(() => {
+    const htmlValid = formRef.current?.checkValidity() ?? false;
+    setCanSubmit(htmlValid && policy.all && !mismatch && agree && !pending);
+  }, [policy.all, mismatch, agree, pending]);
+  React.useEffect(() => {
+    recompute();
+  }, [recompute, name, email, password, confirm, agree]);
+
+  // OAuth
+  const startOAuth = React.useCallback(
+    (provider: "oauth_github" | "oauth_google") => {
+      if (!isSignUpLoaded || !signUp) return;
+      signUp.authenticateWithRedirect({
+        strategy: provider,
+        redirectUrl: "/sso-callback",
+        redirectUrlComplete: redirectTo,
+      });
+    },
+    [isSignUpLoaded, signUp, redirectTo]
+  );
+
+  // Finalize helper: try to complete the sign-up, else sign the user in with saved creds
+  const finalize = React.useCallback(
+    async (origin: string) => {
+      if (!isSignUpLoaded || !signUp) {
+        setSuggestLogin(true);
+        return false;
+      }
+      try {
+        await signUp.reload?.();
+
+        // @ts-expect-error tolerate SDK shape
+        const status: string | undefined = signUp?.status;
+        // @ts-expect-error tolerate SDK shape
+        const createdSessionId: string | undefined = signUp?.createdSessionId;
+        // @ts-expect-error tolerate SDK shape
+        const verStatus: string | undefined =
+          signUp?.verifications?.emailAddress?.status;
+
+        if (status === "complete" && createdSessionId) {
+          await setActive({ session: createdSessionId });
+          sessionStorage.removeItem(SS_EMAIL);
+          sessionStorage.removeItem(SS_PASSWORD);
+          router.push(redirectTo);
+          return true;
+        }
+
+        // If email is verified but no session, try a direct sign-in with the same credentials
+        if (
+          verStatus === "verified" &&
+          isSignInLoaded &&
+          signIn &&
+          email &&
+          password
+        ) {
+          const r = await signIn.create({
+            identifier: email,
+            password,
+          });
+          if (r.status === "complete") {
+            await setActive({ session: r.createdSessionId });
+            sessionStorage.removeItem(SS_EMAIL);
+            sessionStorage.removeItem(SS_PASSWORD);
+            router.push(redirectTo);
+            return true;
+          }
+        }
+
+        // If we reach here, we couldn't complete; suggest manual login
+        setSuggestLogin(true);
+        if (process.env.NODE_ENV !== "production") {
+          console.warn(`[finalize:${origin}] incomplete`, {
+            status,
+            createdSessionId,
+            verStatus,
+          });
+        }
+        return false;
+      } catch (err) {
+        if (process.env.NODE_ENV !== "production") {
+          console.error(`[finalize:${origin}]`, err);
+        }
+        setSuggestLogin(true);
+        return false;
+      }
+    },
+    [
+      isSignUpLoaded,
+      signUp,
+      isSignInLoaded,
+      signIn,
+      email,
+      password,
+      router,
+      redirectTo,
+      setActive,
+    ]
+  );
+
+  // “Already verified” path (no loops)
+  const handleAlreadyVerified = React.useCallback(async () => {
+    if (attemptedFinishRef.current) {
+      setSuggestLogin(true);
+      return;
+    }
+    attemptedFinishRef.current = true;
+    await finalize("already-verified");
+  }, [finalize]);
+
+  const resendCode = React.useCallback(async () => {
+    if (!isSignUpLoaded || !signUp) return;
+    setError(null);
+    setPending(true);
+    try {
+      await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
+    } catch (err: any) {
+      const e = parseClerkError(err);
+      if (e.code === "verification_already_verified") {
+        await handleAlreadyVerified();
+        return;
+      }
+      setError(
+        e.code === "verification_attempt_blocked"
+          ? "Too many attempts. Please wait a bit before trying again."
+          : e.message
+      );
+      if (process.env.NODE_ENV !== "production")
+        console.error("Clerk resend:", e, err);
+    } finally {
+      setPending(false);
+    }
+  }, [isSignUpLoaded, signUp, handleAlreadyVerified]);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!isSignUpLoaded || !signUp) return;
+
+    if (!agree) return setError("Please accept the Terms and Privacy Policy.");
+    if (!policy.all) return setError("Please meet the password requirements.");
+    if (mismatch) return setError("Passwords do not match.");
+
+    setError(null);
+    setPending(true);
+    setSuggestLogin(false);
+
+    // Split name for instances that require first/last
+    const [firstName, ...rest] = (name || "").trim().split(/\s+/);
+    const lastName = rest.join(" ") || undefined;
+
+    try {
+      await signUp.create({
+        emailAddress: email.trim().toLowerCase(),
+        password,
+        firstName: firstName || undefined,
+        lastName,
+      });
+
+      await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
+      setStep("code");
+    } catch (err: any) {
+      const e = parseClerkError(err);
+      if (
+        e.code === "identifier_already_exists" ||
+        e.code === "form_identifier_exists"
+      ) {
+        setError(
+          "An account with this email already exists. Try signing in or resetting your password."
+        );
+      } else if (
+        e.code === "captcha_required" ||
+        e.code === "captcha_invalid"
+      ) {
+        setError("Please complete the verification challenge and try again.");
+      } else if (e.code === "password_disabled") {
+        setError("Password sign-up is disabled for this application.");
+      } else if (e.code === "not_allowed_to_sign_up") {
+        setError("Sign-ups are disabled or this email/domain is not allowed.");
+      } else if (e.code === "verification_already_verified") {
+        await handleAlreadyVerified();
+      } else {
+        setError(e.message);
+      }
+      if (process.env.NODE_ENV !== "production")
+        console.error("Clerk signup:", e, err);
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function verifyCode(e: React.FormEvent) {
+    e.preventDefault();
+    if (!isSignUpLoaded || !signUp) return;
+
+    setError(null);
+    setPending(true);
+    setSuggestLogin(false);
+
+    try {
+      const res = await signUp.attemptEmailAddressVerification({ code });
+
+      // Most happy path: we’re done
+      if (res.status === "complete") {
+        await setActive({ session: res.createdSessionId });
+        sessionStorage.removeItem(SS_EMAIL);
+        sessionStorage.removeItem(SS_PASSWORD);
+        router.push(redirectTo);
+        return;
+      }
+
+      // If not complete, try to “finalize” based on current SDK state
+      const ok = await finalize("attempt-returned-non-complete");
+      if (!ok) setError("Invalid or expired code.");
+    } catch (err: any) {
+      const e = parseClerkError(err);
+
+      if (e.code === "verification_already_verified") {
+        await handleAlreadyVerified();
+      } else if (
+        e.code === "expired" ||
+        e.code === "verification_code_expired" ||
+        /expired/.test(e.message || "")
+      ) {
+        setError("Code expired. Tap Resend to get a new one.");
+      } else if (
+        e.code === "client_mismatch" ||
+        /client.*mismatch/i.test(e.message || "")
+      ) {
+        setError(
+          "We lost the verification session (dev refresh). Tap Resend to get a fresh code."
+        );
+      } else if (
+        e.code === "verification_failed" ||
+        e.code === "form_code_incorrect" ||
+        /invalid|incorrect/i.test(e.message || "")
+      ) {
+        setError("That code didn’t match. Please try again, or tap Resend.");
+      } else {
+        setError(e.message || "Invalid or expired code.");
+      }
+
+      if (process.env.NODE_ENV !== "production")
+        console.error("Clerk verify:", e, err);
+    } finally {
+      setPending(false);
+    }
+  }
+
+  // If we land on the code step and the email is already verified, try to finish once
+  React.useEffect(() => {
+    const run = async () => {
+      if (
+        !isSignUpLoaded ||
+        !signUp ||
+        step !== "code" ||
+        attemptedFinishRef.current
+      )
+        return;
+      try {
+        await signUp.reload?.();
+
+        const v = signUp?.verifications?.emailAddress?.status;
+        if (v === "verified") {
+          await handleAlreadyVerified();
+        }
+      } catch {
+        /* ignore */
+      }
+    };
+    run();
+  }, [step, isSignUpLoaded, signUp, handleAlreadyVerified]);
+
+  if (step === "code") {
+    return (
+      <form onSubmit={verifyCode} className="space-y-4" noValidate>
+        <div className="space-y-2">
+          <Label>Enter the 6-digit code</Label>
+          <InputOTP maxLength={6} value={code} onChange={setCode}>
+            <InputOTPGroup>
+              {Array.from({ length: 6 }).map((_, i) => (
+                <InputOTPSlot key={i} index={i} />
+              ))}
+            </InputOTPGroup>
+          </InputOTP>
+          <p className="text-xs text-muted-foreground">
+            We sent it to {email}.
+          </p>
+        </div>
+
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={pending || code.length !== 6}
+        >
+          {pending ? "Verifying…" : "Verify & create account"}
+        </Button>
+
+        <div className="grid gap-2">
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full"
+            onClick={() => setStep("form")}
+            disabled={pending}
+          >
+            Use a different email
+          </Button>
+
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full"
+            onClick={resendCode}
+            disabled={pending || !isSignUpLoaded || !signUp}
+          >
+            Resend code
+          </Button>
+
+          {suggestLogin && (
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full"
+              onClick={() =>
+                router.push(
+                  `/login?redirect_url=${encodeURIComponent(
+                    redirectTo
+                  )}&from=verified`
+                )
+              }
+            >
+              <LogIn className="mr-2 h-4 w-4" />
+              Continue to sign in
+            </Button>
+          )}
+        </div>
+
+        {error && (
+          <p
+            role="alert"
+            aria-live="polite"
+            className="text-sm text-destructive"
+          >
+            {error}
+          </p>
+        )}
+      </form>
+    );
+  }
+
+  return (
+    <form
+      ref={formRef}
+      onSubmit={onSubmit}
+      onInput={recompute}
+      className="space-y-4"
+      noValidate
+    >
+      {/* Name */}
+      <div className="space-y-2">
+        <Label htmlFor="name">Name</Label>
+        <div className="relative">
+          <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 opacity-60" />
+          <Input
+            id="name"
+            name="name"
+            placeholder="Anders Andersson"
+            className="pl-9"
+            autoComplete="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+      </div>
+
+      {/* Email */}
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <div className="relative">
+          <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 opacity-60" />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            className="pl-9"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+      </div>
+
+      {/* Password + policy popover */}
+      <div className="space-y-2">
+        <Label htmlFor="password">Password</Label>
+        <Popover open={showPolicy} modal={false}>
+          <PopoverAnchor asChild>
+            <div className="relative">
+              <Lock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 opacity-60" />
+              <Input
+                id="password"
+                name="password"
+                type={showPw ? "text" : "password"}
+                className="pl-9 pr-10"
+                minLength={10}
+                autoComplete="new-password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onFocus={() => setPwFocused(true)}
+                onBlur={() => setPwFocused(false)}
+                aria-describedby="password-policy"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPw((v) => !v)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1 text-muted-foreground hover:text-foreground"
+                aria-label={showPw ? "Hide password" : "Show password"}
+              >
+                {showPw ? (
+                  <EyeOff className="h-4 w-4" />
+                ) : (
+                  <Eye className="h-4 w-4" />
+                )}
+              </button>
+            </div>
+          </PopoverAnchor>
+
+          <PopoverContent
+            id="password-policy"
+            side="right"
+            align="start"
+            className="w-72 text-sm"
+            onOpenAutoFocus={(e) => e.preventDefault()}
+            onCloseAutoFocus={(e) => e.preventDefault()}
+          >
+            <p className="mb-2 font-medium">Password requirements</p>
+            <ul className="space-y-2">
+              <Req ok={policy.lengthOK} label="At least 10 characters" />
+              <Req
+                ok={policy.upperOK}
+                label="Contains an uppercase letter (A–Z)"
+              />
+              <Req ok={policy.numberOK} label="Contains a number (0–9)" />
+              <Req
+                ok={policy.specialOK}
+                label="Contains a special character (!@#$…)"
+              />
+            </ul>
+          </PopoverContent>
+        </Popover>
+        <p className="text-xs text-muted-foreground">
+          Use a unique password you don’t use elsewhere.
+        </p>
+      </div>
+
+      {/* Confirm Password */}
+      <div className="space-y-2">
+        <Label htmlFor="confirm">Confirm password</Label>
+        <div className="relative">
+          <Lock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 opacity-60" />
+          <Input
+            id="confirm"
+            name="confirm"
+            type="password"
+            className={`pl-9 ${
+              mismatch
+                ? "border-destructive focus-visible:ring-destructive"
+                : ""
+            }`}
+            autoComplete="new-password"
+            required
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+            aria-invalid={mismatch}
+            aria-describedby={mismatch ? "confirm-error" : undefined}
+          />
+        </div>
+        {mismatch && (
+          <p
+            id="confirm-error"
+            role="alert"
+            className="text-xs text-destructive"
+          >
+            Passwords do not match.
+          </p>
+        )}
+      </div>
+
+      {/* Consent */}
+      <label className="group -mx-2 flex cursor-pointer items-start gap-2 rounded-md p-2 hover:bg-muted/50">
+        <Checkbox
+          id="accept"
+          checked={agree}
+          onCheckedChange={(v) => setAgree(Boolean(v))}
+          className="h-4 w-4 translate-y-[1px]"
+        />
+        <span className="text-xs leading-4 text-muted-foreground">
+          I agree to the{" "}
+          <Link href="/terms" className="underline underline-offset-4">
+            Terms of Service
+          </Link>{" "}
+          and{" "}
+          <Link href="/privacy" className="underline underline-offset-4">
+            Privacy Policy
+          </Link>
+          .
+        </span>
+      </label>
+
+      {/* CAPTCHA placeholder (optional) */}
+      <div
+        id="clerk-captcha"
+        data-cl-theme="auto"
+        data-cl-size="normal"
+        className="mt-2"
+      />
+
+      <Button
+        type="submit"
+        className="w-full"
+        disabled={!canSubmit || !isSignUpLoaded || !signUp}
+      >
+        {pending ? "Creating…" : "Create account"}
+        <UserPlus className="ml-2 h-4 w-4" />
+      </Button>
+
+      {/* OR */}
+      <div className="my-4 flex items-center gap-3">
+        <span className="h-px flex-1 bg-border" />
+        <span className="text-xs text-muted-foreground">or</span>
+        <span className="h-px flex-1 bg-border" />
+      </div>
+
+      {/* Social */}
+      <div className="grid gap-3">
+        <Button
+          type="button"
+          variant="outline"
+          className="h-10 w-full justify-center gap-2"
+          onClick={() => startOAuth("oauth_github")}
+          disabled={pending || !isSignUpLoaded || !signUp}
+        >
+          <Github className="h-4 w-4 shrink-0" />
+          <span className="truncate">Continue with GitHub</span>
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          className="h-10 w-full justify-center gap-2"
+          onClick={() => startOAuth("oauth_google")}
+          disabled={pending || !isSignUpLoaded || !signUp}
+        >
+          <span className="font-medium">G</span>
+          <span className="truncate">Continue with Google</span>
+        </Button>
+      </div>
+
+      {error && (
+        <p
+          role="alert"
+          aria-live="polite"
+          className="text-center text-sm text-destructive"
+        >
+          {error}
+        </p>
+      )}
+    </form>
+  );
+}
+
+function Req({ ok, label }: { ok: boolean; label: string }) {
+  return (
+    <li className="flex items-center gap-2 leading-tight">
+      <span className="flex h-4 w-4 flex-none items-center justify-center">
+        {ok ? (
+          <CheckCircle2
+            className="h-4 w-4 text-green-600 dark:text-green-500"
+            strokeWidth={2}
+            aria-hidden
+          />
+        ) : (
+          <Circle
+            className="h-4 w-4 text-muted-foreground"
+            strokeWidth={2}
+            aria-hidden
+          />
+        )}
+      </span>
+      <span className={ok ? "text-foreground" : "text-muted-foreground"}>
+        {label}
+      </span>
+    </li>
+  );
+}
+
+
+This is the file src/components/Button_Switches/ThemeSwitch.tsx =
+"use client";
+
+import * as React from "react";
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+
+export default function ThemeSwitch() {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    // avoid hydration mismatch
+    return (
+      <div className="flex items-center gap-2 opacity-0">
+        <Sun className="h-4 w-4" />
+        <Switch />
+        <Moon className="h-4 w-4" />
+      </div>
+    );
+  }
+
+  const isDark = resolvedTheme === "dark";
+
+  return (
+    <div className="flex items-center gap-2">
+      <Sun className="h-4 w-4 opacity-60" />
+      <Switch
+        checked={isDark}
+        onCheckedChange={(v) => setTheme(v ? "dark" : "light")}
+        aria-label="Toggle dark mode"
+      />
+      <Moon className="h-4 w-4 opacity-60" />
+    </div>
+  );
+}
+
+
+This is the file src/components/Navigation/AppSidebar.tsx =
+// src/components/Navigation/AppSidebar.tsx
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useClerk } from "@clerk/nextjs";
+import { cn } from "@/lib/utils";
+
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
+
+import {
+  LayoutDashboard,
+  LineChart,
+  ListFilter,
+  Settings,
+  HelpCircle,
+} from "lucide-react";
+
+type NavItem = { label: string; href: string; icon: React.ReactNode };
+
+export const navItems: NavItem[] = [
+  {
+    label: "Dashboard",
+    href: "/dashboard",
+    icon: <LayoutDashboard className="h-4 w-4" />,
+  },
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+    icon: <LineChart className="h-4 w-4" />,
+  },
+  {
+    label: "Screens",
+    href: "/screens",
+    icon: <ListFilter className="h-4 w-4" />,
+  },
+  {
+    label: "Settings",
+    href: "/settings",
+    icon: <Settings className="h-4 w-4" />,
+  },
+];
+
+export default function AppSidebar() {
+  const pathname = usePathname();
+  const { signOut } = useClerk();
+
+  return (
+    <aside className="hidden md:flex sticky top-0 h-dvh w-64 flex-col border-r bg-background">
+      {/* Brand */}
+      <div className="h-14 shrink-0 px-4 flex items-center justify-between">
+        <Link
+          href="/dashboard"
+          className="font-semibold tracking-tight hover:opacity-90"
+        >
+          InvestApp
+        </Link>
+        <Badge variant="secondary" className="uppercase">
+          App
+        </Badge>
+      </div>
+      <Separator />
+
+      {/* Nav (fills available space) */}
+      <ScrollArea className="flex-1">
+        <nav className="p-3 space-y-1">
+          {navItems.map((item) => {
+            const active =
+              pathname === item.href ||
+              (item.href !== "/dashboard" && pathname?.startsWith(item.href));
+
+            return (
+              <Button
+                key={item.href}
+                asChild
+                variant={active ? "secondary" : "ghost"}
+                className={cn(
+                  "w-full justify-start gap-3 rounded-md text-sm",
+                  active
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <Link
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                >
+                  <span className="inline-flex items-center gap-3">
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </span>
+                </Link>
+              </Button>
+            );
+          })}
+        </nav>
+      </ScrollArea>
+
+      {/* Bottom actions */}
+      <div className="mt-auto border-t">
+        <div className="p-3 flex items-center justify-between">
+          <Button
+            asChild
+            size="sm"
+            variant="ghost"
+            className="text-xs text-muted-foreground"
+          >
+            <Link href="/help" className="inline-flex items-center gap-1">
+              <HelpCircle className="h-3.5 w-3.5" />
+              Help
+            </Link>
+          </Button>
+
+          <Button
+            size="sm"
+            variant="outline"
+            className="text-destructive focus:text-destructive !cursor-pointer"
+            onClick={() => signOut({ redirectUrl: "/" })}
+          >
+            <LogOut className="h-4 w-4 mr-2" />
+            Sign out
+          </Button>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+
+This is the file src/components/Navigation/AppTopbar.tsx =
+// src/components/Navigation/AppTopbar.tsx
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { useClerk, useUser } from "@clerk/nextjs";
+import {
+  Menu,
+  HelpCircle,
+  CreditCard,
+  Sparkles,
+  User as UserIcon,
+  LogOut,
+} from "lucide-react";
+import { navItems } from "./AppSidebar";
+import { cn } from "@/lib/utils";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
+/** Page-specific subnav registry */
+const contextNavRegistry: Array<{
+  match: (path: string) => boolean;
+  items: { label: string; href: string }[];
+}> = [
+  {
+    match: (p) => p.startsWith("/account"),
+    items: [
+      { label: "Account", href: "/account" },
+      { label: "Security", href: "/account/security" },
+    ],
+  },
+];
+
+export default function AppTopbar() {
+  const { signOut } = useClerk();
+  const { user } = useUser();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  const subnav = useMemo(
+    () => contextNavRegistry.find((r) => r.match(pathname)),
+    [pathname]
+  );
+
+  // pick the single best active tab (longest prefix)
+  const activeHref = useMemo(() => {
+    if (!subnav?.items?.length) return "";
+    let best = "";
+    for (const i of subnav.items) {
+      if (pathname === i.href || pathname.startsWith(i.href + "/")) {
+        if (i.href.length > best.length) best = i.href;
+      }
+    }
+    if (!best) best = subnav.items.find((i) => i.href === pathname)?.href ?? "";
+    return best;
+  }, [pathname, subnav]);
+
+  // expose topbar height for pages that need it
+  useEffect(() => {
+    const setVar = () => {
+      const h = headerRef.current?.offsetHeight || 56; // ~h-14
+      document.documentElement.style.setProperty("--topbar-total-h", `${h}px`);
+    };
+    setVar();
+    window.addEventListener("resize", setVar);
+    return () => window.removeEventListener("resize", setVar);
+  }, [pathname, subnav, open]);
+
+  // initials for avatar fallback (no background)
+  const initials = useMemo(() => {
+    const f = user?.firstName?.[0]?.toUpperCase() ?? "";
+    const l = user?.lastName?.[0]?.toUpperCase() ?? "";
+    if (f || l) return `${f}${l}` || "U";
+    const u =
+      user?.username?.[0]?.toUpperCase() ??
+      user?.primaryEmailAddress?.emailAddress?.[0]?.toUpperCase() ??
+      "U";
+    return u;
+  }, [user]);
+
+  return (
+    <header
+      ref={headerRef}
+      className={cn(
+        "sticky top-0 z-30 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      )}
+    >
+      {/* md+: first column is a spacer equal to the sidebar width */}
+      <div
+        className={cn(
+          "h-14 grid items-center gap-2 md:gap-0 pl-3 pr-3 md:pl-0 md:pr-6",
+          "grid-cols-[auto_1fr_auto] md:grid-cols-[var(--sidebar-w,16rem)_1fr_auto]"
+        )}
+      >
+        {/* COL 1 — mobile left cluster; md+ acts as spacer */}
+        <div className="flex items-center gap-2 md:hidden">
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden">
+                <Menu className="h-4 w-4" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="p-0 flex h-full flex-col">
+              <SheetHeader className="sr-only">
+                <SheetTitle>Navigation menu</SheetTitle>
+              </SheetHeader>
+
+              <div className="h-14 px-4 flex items-center justify-between">
+                <Link
+                  href="/dashboard"
+                  className="font-semibold tracking-tight"
+                  onClick={() => setOpen(false)}
+                >
+                  InvestApp
+                </Link>
+              </div>
+              <Separator />
+
+              <ScrollArea className="flex-1 px-3">
+                <nav className="py-3 space-y-1">
+                  {navItems.map((item) => {
+                    const active =
+                      pathname === item.href ||
+                      (item.href !== "/dashboard" &&
+                        pathname?.startsWith(item.href));
+                    return (
+                      <Button
+                        key={item.href}
+                        asChild
+                        variant={active ? "secondary" : "ghost"}
+                        className={cn(
+                          "w-full justify-start gap-3",
+                          active && "text-foreground"
+                        )}
+                        onClick={() => setOpen(false)}
+                      >
+                        <Link href={item.href}>
+                          {item.icon}
+                          <span>{item.label}</span>
+                        </Link>
+                      </Button>
+                    );
+                  })}
+                </nav>
+              </ScrollArea>
+
+              <div className="border-t p-3 flex items-center justify-between">
+                <Button
+                  asChild
+                  size="sm"
+                  variant="ghost"
+                  className="text-xs text-muted-foreground"
+                  onClick={() => setOpen(false)}
+                >
+                  <Link href="/help" className="inline-flex items-center gap-1">
+                    <HelpCircle className="h-3.5 w-3.5" />
+                    Help
+                  </Link>
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    setOpen(false);
+                    signOut({ redirectUrl: "/" });
+                  }}
+                >
+                  Log out
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+
+          <Link href="/dashboard" className="md:hidden font-semibold">
+            InvestApp
+          </Link>
+        </div>
+
+        {/* md+ spacer cell keeps column 1 width */}
+        <div className="hidden md:block" />
+
+        {/* COL 2 — subnav (flush-left to content edge on md+) */}
+        <div className="hidden md:flex items-center gap-1 overflow-x-auto no-scrollbar justify-self-start">
+          {subnav?.items?.length
+            ? subnav.items.map((t) => {
+                const active = t.href === activeHref;
+                return (
+                  <Button
+                    key={t.href}
+                    asChild
+                    size="sm"
+                    variant={active ? "secondary" : "ghost"}
+                    className={cn(
+                      "h-8 px-3 rounded-md",
+                      active && "text-foreground shadow-sm"
+                    )}
+                  >
+                    <Link
+                      href={t.href}
+                      aria-current={active ? "page" : undefined}
+                    >
+                      {t.label}
+                    </Link>
+                  </Button>
+                );
+              })
+            : null}
+        </div>
+
+        {/* COL 3 — custom user menu using shadcn (no background behind avatar) */}
+        <div className="flex items-center gap-2 justify-self-end pr-1 md:pr-3 md:pl-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              {/* 👇 Add cursor-pointer so hand shows on hover */}
+              <button
+                className={cn(
+                  "rounded-full cursor-pointer",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "ring-offset-2 ring-offset-background"
+                )}
+                aria-label="Open user menu"
+              >
+                <Avatar className="h-8 w-8 select-none">
+                  <AvatarImage
+                    src={user?.imageUrl ?? undefined}
+                    alt={user?.fullName ?? "User"}
+                  />
+                  <AvatarFallback className="bg-transparent text-foreground text-xs">
+                    {initials}
+                  </AvatarFallback>
+                </Avatar>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              className="w-64 p-1"
+              sideOffset={8}
+            >
+              <DropdownMenuLabel className="flex flex-col gap-0.5">
+                <span className="text-sm font-medium">
+                  {user?.fullName ?? "Signed in"}
+                </span>
+                <span className="text-xs text-muted-foreground truncate">
+                  {user?.primaryEmailAddress?.emailAddress ?? ""}
+                </span>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {/* 👇 Force pointer cursor on items (shadcn sets cursor-default) */}
+              <DropdownMenuItem asChild className="!cursor-pointer">
+                <Link href="/account" className="flex items-center gap-2">
+                  <UserIcon className="h-4 w-4" />
+                  Account
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="!cursor-pointer">
+                <Link href="/billing" className="flex items-center gap-2">
+                  <CreditCard className="h-4 w-4" />
+                  Billing
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="!cursor-pointer">
+                <Link href="/pricing" className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4" />
+                  Pricing
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                className="text-destructive focus:text-destructive !cursor-pointer"
+                onClick={() => signOut({ redirectUrl: "/" })}
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Sign out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+
+This is the file src/components/Navigation/Footer.tsx =
+// src/components/Navigation/Footer.tsx
+"use client";
+
+import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Github, Mail } from "lucide-react";
+import { SiX } from "react-icons/si";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "@/components/ui/tooltip";
+import ThemeSwitch from "../Button_Switches/ThemeSwitch";
+
+export default function Footer() {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const email = new FormData(e.currentTarget).get("email");
+    // TODO: call your API / toast
+    console.log("subscribe:", email);
+  }
+
+  const product = [
+    { label: "Terminal", href: "/terminal" },
+    { label: "APIs", href: "/apis" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Changelog", href: "/changelog" },
+  ];
+
+  const company = [
+    { label: "About", href: "/about" },
+    { label: "Blog", href: "/blog" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  const resources = [
+    { label: "Docs", href: "/docs" },
+    { label: "Guides", href: "/guides" },
+    { label: "Status", href: "/status" },
+    { label: "Support", href: "/support" },
+  ];
+
+  const legal = [
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
+    { label: "Cookies", href: "/cookies" },
+    { label: "Licenses", href: "/licenses" },
+  ];
+
+  return (
+    <footer className="border-t bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Top: brand + link columns + newsletter */}
+        <div className="grid gap-10 py-10 md:grid-cols-2 md:py-12 lg:grid-cols-6">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 font-semibold"
+            >
+              <span className="inline-block h-6 w-6 rounded-lg bg-foreground/10" />
+              YourBrand
+            </Link>
+            <p className="mt-3 max-w-xs text-sm text-muted-foreground">
+              Tools for research, analytics and automation. Built with care.
+            </p>
+          </div>
+
+          {/* Columns */}
+          <FooterColumn title="Product" items={product} />
+          <FooterColumn title="Company" items={company} />
+          <FooterColumn title="Resources" items={resources} />
+          <FooterColumn title="Legal" items={legal} />
+
+          {/* Newsletter */}
+          <div className="lg:col-span-2">
+            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              Newsletter
+            </p>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Get product updates and release notes.
+            </p>
+            <form className="mt-3 flex gap-2" onSubmit={onSubmit}>
+              <Input
+                type="email"
+                name="email"
+                required
+                placeholder="you@example.com"
+                className="h-9"
+                aria-label="Email address"
+              />
+              <Button type="submit" className="h-9">
+                Subscribe
+              </Button>
+            </form>
+            <p className="mt-2 text-[11px] text-muted-foreground">
+              We’ll never share your email. Unsubscribe anytime.
+            </p>
+          </div>
+        </div>
+
+        <Separator className="my-4" />
+
+        {/* Bottom bar */}
+        <div className="flex flex-col items-center justify-between gap-4 py-6 text-sm text-muted-foreground md:flex-row">
+          <p>© {new Date().getFullYear()} YourBrand. All rights reserved.</p>
+
+          <div className="flex items-center gap-4">
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div>
+                    <ThemeSwitch />
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent side="top" align="center">
+                  Toggle theme
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+            {/* Socials */}
+            <div className="ml-2 flex items-center gap-2">
+              <Button asChild variant="ghost" size="icon" aria-label="Email">
+                <Link href="mailto:hello@yourbrand.com">
+                  <Mail className="h-4 w-4" />
+                </Link>
+              </Button>
+
+              <Button asChild variant="ghost" size="icon" aria-label="GitHub">
+                <Link
+                  href="https://github.com/yourbrand"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Github className="h-4 w-4" />
+                </Link>
+              </Button>
+
+              {/* X (formerly Twitter) */}
+              <Button asChild variant="ghost" size="icon" aria-label="X">
+                <Link
+                  href="https://x.com/yourbrand"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <SiX className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* — Helpers — */
+
+function FooterColumn({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; href: string }[];
+}) {
+  return (
+    <nav aria-label={title}>
+      <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        {title}
+      </p>
+      <ul className="mt-3 space-y-2 text-sm">
+        {items.map((item) => (
+          <li key={item.href}>
+            <Link className="hover:underline" href={item.href}>
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+
+This is the file src/components/Navigation/Navbar.tsx =
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetClose,
+} from "@/components/ui/sheet";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Menu, ChevronRight, LogIn } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+
+function MobileMenu({
+  products,
+  topLinks,
+  pathname,
+}: {
+  products: { title: string; href: string; description?: string }[];
+  topLinks: { href: string; label: string }[];
+  pathname: string;
+}) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      {/* Animated hamburger → X */}
+      <SheetTrigger asChild>
+        <button
+          aria-label="Open menu"
+          data-open={open}
+          className="group relative inline-flex h-10 w-10 items-center justify-center rounded-md border bg-background/80 backdrop-blur transition"
+        >
+          <span
+            className="
+              absolute h-0.5 w-6 -translate-y-2.5 rounded bg-foreground transition-all
+              group-data-[open=true]:translate-y-0 group-data-[open=true]:rotate-45
+            "
+          />
+          <span
+            className="
+              absolute h-0.5 w-6 rounded bg-foreground transition-all
+              group-data-[open=true]:opacity-0
+            "
+          />
+          <span
+            className="
+              absolute h-0.5 w-6 translate-y-2.5 rounded bg-foreground transition-all
+              group-data-[open=true]:-translate-y-0 group-data-[open=true]:-rotate-45
+            "
+          />
+        </button>
+      </SheetTrigger>
+
+      <SheetContent side="left" className="w-[85vw] max-w-sm p-0">
+        {/* Accessible title (visible) */}
+        <SheetHeader className="px-4 pb-2 pt-4">
+          <SheetTitle className="text-base">Menu</SheetTitle>
+        </SheetHeader>
+        <Separator />
+
+        {/* Scrollable content */}
+        <ScrollArea className="h-[calc(100vh-5rem)] px-2">
+          {/* Products (Accordion makes it feel rich) */}
+          <div className="px-2">
+            <Accordion type="single" collapsible defaultValue="products">
+              <AccordionItem value="products" className="border-none">
+                <AccordionTrigger className="px-2 text-sm">
+                  Products
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ul className="space-y-1">
+                    {products.map((p) => (
+                      <li key={p.href}>
+                        <SheetClose asChild>
+                          <Link
+                            href={p.href}
+                            className={
+                              "flex items-center justify-between rounded-lg px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground " +
+                              (pathname === p.href
+                                ? " bg-accent text-accent-foreground"
+                                : "")
+                            }
+                          >
+                            <span>{p.title}</span>
+                            <ChevronRight className="h-4 w-4 opacity-60" />
+                          </Link>
+                        </SheetClose>
+                      </li>
+                    ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+
+          {/* Links */}
+          <div className="mt-2 px-4">
+            <p className="px-1 text-xs font-medium text-muted-foreground">
+              Links
+            </p>
+            <ul className="mt-2 space-y-1">
+              {topLinks.map((l) => (
+                <li key={l.href}>
+                  <SheetClose asChild>
+                    <Link
+                      href={l.href}
+                      className={
+                        "block rounded-lg px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground " +
+                        (pathname === l.href
+                          ? " bg-accent text-accent-foreground"
+                          : "")
+                      }
+                    >
+                      {l.label}
+                    </Link>
+                  </SheetClose>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Actions */}
+          <div className="px-4">
+            <div className="mt-6 flex gap-3">
+              <SheetClose asChild>
+                <Link
+                  href="/login"
+                  className="inline-flex flex-1 items-center justify-center rounded-md border px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                >
+                  <LogIn className="mr-2 h-4 w-4" />
+                  Sign in
+                </Link>
+              </SheetClose>
+
+              <SheetClose asChild>
+                <Link
+                  href="/signup"
+                  className="inline-flex flex-1 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90"
+                >
+                  Get started
+                </Link>
+              </SheetClose>
+            </div>
+
+            {/* Optional: tiny footer */}
+            <p className="mt-4 pb-4 text-center text-xs text-muted-foreground">
+              v1.0 • © YourBrand
+            </p>
+          </div>
+        </ScrollArea>
+      </SheetContent>
+    </Sheet>
+  );
+}
+
+export default function NavMenu() {
+  const pathname = usePathname();
+
+  const products = [
+    {
+      title: "Terminal",
+      href: "/terminal",
+      description: "The modern all-in-one company research platform,",
+    },
+    { title: "APIs", href: "/apis", description: "Coming soon." },
+  ];
+
+  const topLinks = [
+    { href: "/changelog", label: "Changelog" },
+    { href: "/pricing", label: "Pricing" },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/50">
+      <div className="mx-auto flex h-14 max-w-7xl items-center px-4 sm:h-16 sm:px-6 lg:px-8">
+        {/* Brand */}
+        <Link href="/" className="font-semibold tracking-tight">
+          YourBrand
+        </Link>
+
+        {/* Desktop nav: all items share the same base style + one gap */}
+        <nav className="ml-auto hidden md:block">
+          <NavigationMenu>
+            <NavigationMenuList className="items-center gap-2">
+              {/* Products dropdown */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[540px] gap-2 p-4 sm:w-[600px] sm:grid-cols-2">
+                    {products.map((item) => (
+                      <li key={item.title}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              {item.title}
+                            </div>
+                            <p className="line-clamp-2 text-sm text-muted-foreground">
+                              {item.description}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* Simple links (uniform size/spacing) */}
+              {topLinks.map((l) => (
+                <NavigationMenuItem key={l.href}>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href={l.href}
+                      className={
+                        navigationMenuTriggerStyle() +
+                        (pathname === l.href
+                          ? " bg-accent text-accent-foreground"
+                          : "")
+                      }
+                    >
+                      {l.label}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+
+              {/* Sign in (same dimensions as other items) */}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/login" className={navigationMenuTriggerStyle()}>
+                    Sign in
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              {/* Get started (primary style, same dimensions) */}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/signup"
+                    className={
+                      navigationMenuTriggerStyle() +
+                      " bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground focus:text-primary-foreground"
+                    }
+                  >
+                    Get started
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+
+            <NavigationMenuIndicator />
+            <NavigationMenuViewport />
+          </NavigationMenu>
+        </nav>
+
+        {/* Mobile menu (unchanged, uses gap for consistency) */}
+        <div className="ml-auto md:hidden">
+          <MobileMenu
+            products={products}
+            topLinks={topLinks}
+            pathname={pathname}
+          />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+
+This is the file src/components/theme-provider.tsx =
+"use client";
+
+import * as React from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+
+export function ThemeProvider(
+  props: React.ComponentProps<typeof NextThemesProvider>
+) {
+  return <NextThemesProvider {...props} />;
+}
+
+
+This is the file src/components/ui/accordion.tsx =
+"use client"
+
+import * as React from "react"
+import * as AccordionPrimitive from "@radix-ui/react-accordion"
+import { ChevronDownIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+function Accordion({
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+  return <AccordionPrimitive.Root data-slot="accordion" {...props} />
+}
+
+function AccordionItem({
+  className,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Item>) {
+  return (
+    <AccordionPrimitive.Item
+      data-slot="accordion-item"
+      className={cn("border-b last:border-b-0", className)}
+      {...props}
+    />
+  )
+}
+
+function AccordionTrigger({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
+  return (
+    <AccordionPrimitive.Header className="flex">
+      <AccordionPrimitive.Trigger
+        data-slot="accordion-trigger"
+        className={cn(
+          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180",
+          className
+        )}
+        {...props}
+      >
+        {children}
+        <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
+  )
+}
+
+function AccordionContent({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Content>) {
+  return (
+    <AccordionPrimitive.Content
+      data-slot="accordion-content"
+      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
+      {...props}
+    >
+      <div className={cn("pt-0 pb-4", className)}>{children}</div>
+    </AccordionPrimitive.Content>
+  )
+}
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+
+
+This is the file src/components/ui/avatar.tsx =
+"use client"
+
+import * as React from "react"
+import * as AvatarPrimitive from "@radix-ui/react-avatar"
+
+import { cn } from "@/lib/utils"
+
+function Avatar({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
+  return (
+    <AvatarPrimitive.Root
+      data-slot="avatar"
+      className={cn(
+        "relative flex size-8 shrink-0 overflow-hidden rounded-full",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function AvatarImage({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+  return (
+    <AvatarPrimitive.Image
+      data-slot="avatar-image"
+      className={cn("aspect-square size-full", className)}
+      {...props}
+    />
+  )
+}
+
+function AvatarFallback({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
+  return (
+    <AvatarPrimitive.Fallback
+      data-slot="avatar-fallback"
+      className={cn(
+        "bg-muted flex size-full items-center justify-center rounded-full",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Avatar, AvatarImage, AvatarFallback }
+
+
+This is the file src/components/ui/badge.tsx =
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const badgeVariants = cva(
+  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+        destructive:
+          "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+        outline:
+          "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+function Badge({
+  className,
+  variant,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"span"> &
+  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
+  const Comp = asChild ? Slot : "span"
+
+  return (
+    <Comp
+      data-slot="badge"
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+    />
+  )
+}
+
+export { Badge, badgeVariants }
+
+
+This is the file src/components/ui/button.tsx =
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+        outline:
+          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+        ghost:
+          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+        icon: "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+function Button({
+  className,
+  variant,
+  size,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+  }) {
+  const Comp = asChild ? Slot : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  )
+}
+
+export { Button, buttonVariants }
+
+
+This is the file src/components/ui/card.tsx =
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+function Card({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-header"
+      className={cn(
+        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-title"
+      className={cn("leading-none font-semibold", className)}
+      {...props}
+    />
+  )
+}
+
+function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-description"
+      className={cn("text-muted-foreground text-sm", className)}
+      {...props}
+    />
+  )
+}
+
+function CardAction({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-action"
+      className={cn(
+        "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardContent({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-content"
+      className={cn("px-6", className)}
+      {...props}
+    />
+  )
+}
+
+function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-footer"
+      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
+      {...props}
+    />
+  )
+}
+
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardAction,
+  CardDescription,
+  CardContent,
+}
+
+
+This is the file src/components/ui/checkbox.tsx =
+"use client"
+
+import * as React from "react"
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import { CheckIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+function Checkbox({
+  className,
+  ...props
+}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
+  return (
+    <CheckboxPrimitive.Root
+      data-slot="checkbox"
+      className={cn(
+        "peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      )}
+      {...props}
+    >
+      <CheckboxPrimitive.Indicator
+        data-slot="checkbox-indicator"
+        className="flex items-center justify-center text-current transition-none"
+      >
+        <CheckIcon className="size-3.5" />
+      </CheckboxPrimitive.Indicator>
+    </CheckboxPrimitive.Root>
+  )
+}
+
+export { Checkbox }
+
+
+This is the file src/components/ui/dropdown-menu.tsx =
+"use client"
+
+import * as React from "react"
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
+import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+function DropdownMenu({
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
+  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
+}
+
+function DropdownMenuPortal({
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
+  return (
+    <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
+  )
+}
+
+function DropdownMenuTrigger({
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
+  return (
+    <DropdownMenuPrimitive.Trigger
+      data-slot="dropdown-menu-trigger"
+      {...props}
+    />
+  )
+}
+
+function DropdownMenuContent({
+  className,
+  sideOffset = 4,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
+  return (
+    <DropdownMenuPrimitive.Portal>
+      <DropdownMenuPrimitive.Content
+        data-slot="dropdown-menu-content"
+        sideOffset={sideOffset}
+        className={cn(
+          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md",
+          className
+        )}
+        {...props}
+      />
+    </DropdownMenuPrimitive.Portal>
+  )
+}
+
+function DropdownMenuGroup({
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
+  return (
+    <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />
+  )
+}
+
+function DropdownMenuItem({
+  className,
+  inset,
+  variant = "default",
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
+  inset?: boolean
+  variant?: "default" | "destructive"
+}) {
+  return (
+    <DropdownMenuPrimitive.Item
+      data-slot="dropdown-menu-item"
+      data-inset={inset}
+      data-variant={variant}
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function DropdownMenuCheckboxItem({
+  className,
+  children,
+  checked,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
+  return (
+    <DropdownMenuPrimitive.CheckboxItem
+      data-slot="dropdown-menu-checkbox-item"
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        className
+      )}
+      checked={checked}
+      {...props}
+    >
+      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
+        <DropdownMenuPrimitive.ItemIndicator>
+          <CheckIcon className="size-4" />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </DropdownMenuPrimitive.CheckboxItem>
+  )
+}
+
+function DropdownMenuRadioGroup({
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {
+  return (
+    <DropdownMenuPrimitive.RadioGroup
+      data-slot="dropdown-menu-radio-group"
+      {...props}
+    />
+  )
+}
+
+function DropdownMenuRadioItem({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
+  return (
+    <DropdownMenuPrimitive.RadioItem
+      data-slot="dropdown-menu-radio-item"
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        className
+      )}
+      {...props}
+    >
+      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
+        <DropdownMenuPrimitive.ItemIndicator>
+          <CircleIcon className="size-2 fill-current" />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </DropdownMenuPrimitive.RadioItem>
+  )
+}
+
+function DropdownMenuLabel({
+  className,
+  inset,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
+  inset?: boolean
+}) {
+  return (
+    <DropdownMenuPrimitive.Label
+      data-slot="dropdown-menu-label"
+      data-inset={inset}
+      className={cn(
+        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function DropdownMenuSeparator({
+  className,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {
+  return (
+    <DropdownMenuPrimitive.Separator
+      data-slot="dropdown-menu-separator"
+      className={cn("bg-border -mx-1 my-1 h-px", className)}
+      {...props}
+    />
+  )
+}
+
+function DropdownMenuShortcut({
+  className,
+  ...props
+}: React.ComponentProps<"span">) {
+  return (
+    <span
+      data-slot="dropdown-menu-shortcut"
+      className={cn(
+        "text-muted-foreground ml-auto text-xs tracking-widest",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function DropdownMenuSub({
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {
+  return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
+}
+
+function DropdownMenuSubTrigger({
+  className,
+  inset,
+  children,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
+  inset?: boolean
+}) {
+  return (
+    <DropdownMenuPrimitive.SubTrigger
+      data-slot="dropdown-menu-sub-trigger"
+      data-inset={inset}
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <ChevronRightIcon className="ml-auto size-4" />
+    </DropdownMenuPrimitive.SubTrigger>
+  )
+}
+
+function DropdownMenuSubContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {
+  return (
+    <DropdownMenuPrimitive.SubContent
+      data-slot="dropdown-menu-sub-content"
+      className={cn(
+        "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-md border p-1 shadow-lg",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export {
+  DropdownMenu,
+  DropdownMenuPortal,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+}
+
+
+This is the file src/components/ui/input-otp.tsx =
+"use client"
+
+import * as React from "react"
+import { OTPInput, OTPInputContext } from "input-otp"
+import { MinusIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+function InputOTP({
+  className,
+  containerClassName,
+  ...props
+}: React.ComponentProps<typeof OTPInput> & {
+  containerClassName?: string
+}) {
+  return (
+    <OTPInput
+      data-slot="input-otp"
+      containerClassName={cn(
+        "flex items-center gap-2 has-disabled:opacity-50",
+        containerClassName
+      )}
+      className={cn("disabled:cursor-not-allowed", className)}
+      {...props}
+    />
+  )
+}
+
+function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="input-otp-group"
+      className={cn("flex items-center", className)}
+      {...props}
+    />
+  )
+}
+
+function InputOTPSlot({
+  index,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & {
+  index: number
+}) {
+  const inputOTPContext = React.useContext(OTPInputContext)
+  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
+
+  return (
+    <div
+      data-slot="input-otp-slot"
+      data-active={isActive}
+      className={cn(
+        "data-[active=true]:border-ring data-[active=true]:ring-ring/50 data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive dark:bg-input/30 border-input relative flex h-9 w-9 items-center justify-center border-y border-r text-sm shadow-xs transition-all outline-none first:rounded-l-md first:border-l last:rounded-r-md data-[active=true]:z-10 data-[active=true]:ring-[3px]",
+        className
+      )}
+      {...props}
+    >
+      {char}
+      {hasFakeCaret && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="animate-caret-blink bg-foreground h-4 w-px duration-1000" />
+        </div>
+      )}
+    </div>
+  )
+}
+
+function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+  return (
+    <div data-slot="input-otp-separator" role="separator" {...props}>
+      <MinusIcon />
+    </div>
+  )
+}
+
+export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator }
+
+
+This is the file src/components/ui/input.tsx =
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  return (
+    <input
+      type={type}
+      data-slot="input"
+      className={cn(
+        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Input }
+
+
+This is the file src/components/ui/label.tsx =
+"use client"
+
+import * as React from "react"
+import * as LabelPrimitive from "@radix-ui/react-label"
+
+import { cn } from "@/lib/utils"
+
+function Label({
+  className,
+  ...props
+}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+  return (
+    <LabelPrimitive.Root
+      data-slot="label"
+      className={cn(
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Label }
+
+
+This is the file src/components/ui/navigation-menu.tsx =
+import * as React from "react"
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
+import { cva } from "class-variance-authority"
+import { ChevronDownIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+function NavigationMenu({
+  className,
+  children,
+  viewport = true,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
+  viewport?: boolean
+}) {
+  return (
+    <NavigationMenuPrimitive.Root
+      data-slot="navigation-menu"
+      data-viewport={viewport}
+      className={cn(
+        "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      {viewport && <NavigationMenuViewport />}
+    </NavigationMenuPrimitive.Root>
+  )
+}
+
+function NavigationMenuList({
+  className,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.List>) {
+  return (
+    <NavigationMenuPrimitive.List
+      data-slot="navigation-menu-list"
+      className={cn(
+        "group flex flex-1 list-none items-center justify-center gap-1",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function NavigationMenuItem({
+  className,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {
+  return (
+    <NavigationMenuPrimitive.Item
+      data-slot="navigation-menu-item"
+      className={cn("relative", className)}
+      {...props}
+    />
+  )
+}
+
+const navigationMenuTriggerStyle = cva(
+  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1"
+)
+
+function NavigationMenuTrigger({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
+  return (
+    <NavigationMenuPrimitive.Trigger
+      data-slot="navigation-menu-trigger"
+      className={cn(navigationMenuTriggerStyle(), "group", className)}
+      {...props}
+    >
+      {children}{" "}
+      <ChevronDownIcon
+        className="relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
+        aria-hidden="true"
+      />
+    </NavigationMenuPrimitive.Trigger>
+  )
+}
+
+function NavigationMenuContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Content>) {
+  return (
+    <NavigationMenuPrimitive.Content
+      data-slot="navigation-menu-content"
+      className={cn(
+        "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 top-0 left-0 w-full p-2 pr-2.5 md:absolute md:w-auto",
+        "group-data-[viewport=false]/navigation-menu:bg-popover group-data-[viewport=false]/navigation-menu:text-popover-foreground group-data-[viewport=false]/navigation-menu:data-[state=open]:animate-in group-data-[viewport=false]/navigation-menu:data-[state=closed]:animate-out group-data-[viewport=false]/navigation-menu:data-[state=closed]:zoom-out-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:zoom-in-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:fade-in-0 group-data-[viewport=false]/navigation-menu:data-[state=closed]:fade-out-0 group-data-[viewport=false]/navigation-menu:top-full group-data-[viewport=false]/navigation-menu:mt-1.5 group-data-[viewport=false]/navigation-menu:overflow-hidden group-data-[viewport=false]/navigation-menu:rounded-md group-data-[viewport=false]/navigation-menu:border group-data-[viewport=false]/navigation-menu:shadow group-data-[viewport=false]/navigation-menu:duration-200 **:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function NavigationMenuViewport({
+  className,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
+  return (
+    <div
+      className={cn(
+        "absolute top-full left-0 isolate z-50 flex justify-center"
+      )}
+    >
+      <NavigationMenuPrimitive.Viewport
+        data-slot="navigation-menu-viewport"
+        className={cn(
+          "origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)]",
+          className
+        )}
+        {...props}
+      />
+    </div>
+  )
+}
+
+function NavigationMenuLink({
+  className,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
+  return (
+    <NavigationMenuPrimitive.Link
+      data-slot="navigation-menu-link"
+      className={cn(
+        "data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function NavigationMenuIndicator({
+  className,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Indicator>) {
+  return (
+    <NavigationMenuPrimitive.Indicator
+      data-slot="navigation-menu-indicator"
+      className={cn(
+        "data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden",
+        className
+      )}
+      {...props}
+    >
+      <div className="bg-border relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md" />
+    </NavigationMenuPrimitive.Indicator>
+  )
+}
+
+export {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuContent,
+  NavigationMenuTrigger,
+  NavigationMenuLink,
+  NavigationMenuIndicator,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+}
+
+
+This is the file src/components/ui/popover.tsx =
+"use client"
+
+import * as React from "react"
+import * as PopoverPrimitive from "@radix-ui/react-popover"
+
+import { cn } from "@/lib/utils"
+
+function Popover({
+  ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Root>) {
+  return <PopoverPrimitive.Root data-slot="popover" {...props} />
+}
+
+function PopoverTrigger({
+  ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
+  return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />
+}
+
+function PopoverContent({
+  className,
+  align = "center",
+  sideOffset = 4,
+  ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Content>) {
+  return (
+    <PopoverPrimitive.Portal>
+      <PopoverPrimitive.Content
+        data-slot="popover-content"
+        align={align}
+        sideOffset={sideOffset}
+        className={cn(
+          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden",
+          className
+        )}
+        {...props}
+      />
+    </PopoverPrimitive.Portal>
+  )
+}
+
+function PopoverAnchor({
+  ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {
+  return <PopoverPrimitive.Anchor data-slot="popover-anchor" {...props} />
+}
+
+export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor }
+
+
+This is the file src/components/ui/progress.tsx =
+"use client"
+
+import * as React from "react"
+import * as ProgressPrimitive from "@radix-ui/react-progress"
+
+import { cn } from "@/lib/utils"
+
+function Progress({
+  className,
+  value,
+  ...props
+}: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+  return (
+    <ProgressPrimitive.Root
+      data-slot="progress"
+      className={cn(
+        "bg-primary/20 relative h-2 w-full overflow-hidden rounded-full",
+        className
+      )}
+      {...props}
+    >
+      <ProgressPrimitive.Indicator
+        data-slot="progress-indicator"
+        className="bg-primary h-full w-full flex-1 transition-all"
+        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  )
+}
+
+export { Progress }
+
+
+This is the file src/components/ui/scroll-area.tsx =
+"use client"
+
+import * as React from "react"
+import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
+
+import { cn } from "@/lib/utils"
+
+function ScrollArea({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
+  return (
+    <ScrollAreaPrimitive.Root
+      data-slot="scroll-area"
+      className={cn("relative", className)}
+      {...props}
+    >
+      <ScrollAreaPrimitive.Viewport
+        data-slot="scroll-area-viewport"
+        className="focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1"
+      >
+        {children}
+      </ScrollAreaPrimitive.Viewport>
+      <ScrollBar />
+      <ScrollAreaPrimitive.Corner />
+    </ScrollAreaPrimitive.Root>
+  )
+}
+
+function ScrollBar({
+  className,
+  orientation = "vertical",
+  ...props
+}: React.ComponentProps<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>) {
+  return (
+    <ScrollAreaPrimitive.ScrollAreaScrollbar
+      data-slot="scroll-area-scrollbar"
+      orientation={orientation}
+      className={cn(
+        "flex touch-none p-px transition-colors select-none",
+        orientation === "vertical" &&
+          "h-full w-2.5 border-l border-l-transparent",
+        orientation === "horizontal" &&
+          "h-2.5 flex-col border-t border-t-transparent",
+        className
+      )}
+      {...props}
+    >
+      <ScrollAreaPrimitive.ScrollAreaThumb
+        data-slot="scroll-area-thumb"
+        className="bg-border relative flex-1 rounded-full"
+      />
+    </ScrollAreaPrimitive.ScrollAreaScrollbar>
+  )
+}
+
+export { ScrollArea, ScrollBar }
+
+
+This is the file src/components/ui/separator.tsx =
+"use client"
+
+import * as React from "react"
+import * as SeparatorPrimitive from "@radix-ui/react-separator"
+
+import { cn } from "@/lib/utils"
+
+function Separator({
+  className,
+  orientation = "horizontal",
+  decorative = true,
+  ...props
+}: React.ComponentProps<typeof SeparatorPrimitive.Root>) {
+  return (
+    <SeparatorPrimitive.Root
+      data-slot="separator"
+      decorative={decorative}
+      orientation={orientation}
+      className={cn(
+        "bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Separator }
+
+
+This is the file src/components/ui/sheet.tsx =
+"use client"
+
+import * as React from "react"
+import * as SheetPrimitive from "@radix-ui/react-dialog"
+import { XIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
+  return <SheetPrimitive.Root data-slot="sheet" {...props} />
+}
+
+function SheetTrigger({
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
+  return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />
+}
+
+function SheetClose({
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Close>) {
+  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />
+}
+
+function SheetPortal({
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Portal>) {
+  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
+}
+
+function SheetOverlay({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
+  return (
+    <SheetPrimitive.Overlay
+      data-slot="sheet-overlay"
+      className={cn(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function SheetContent({
+  className,
+  children,
+  side = "right",
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Content> & {
+  side?: "top" | "right" | "bottom" | "left"
+}) {
+  return (
+    <SheetPortal>
+      <SheetOverlay />
+      <SheetPrimitive.Content
+        data-slot="sheet-content"
+        className={cn(
+          "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
+          side === "right" &&
+            "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm",
+          side === "left" &&
+            "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
+          side === "top" &&
+            "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
+          side === "bottom" &&
+            "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t",
+          className
+        )}
+        {...props}
+      >
+        {children}
+        <SheetPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
+          <XIcon className="size-4" />
+          <span className="sr-only">Close</span>
+        </SheetPrimitive.Close>
+      </SheetPrimitive.Content>
+    </SheetPortal>
+  )
+}
+
+function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="sheet-header"
+      className={cn("flex flex-col gap-1.5 p-4", className)}
+      {...props}
+    />
+  )
+}
+
+function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="sheet-footer"
+      className={cn("mt-auto flex flex-col gap-2 p-4", className)}
+      {...props}
+    />
+  )
+}
+
+function SheetTitle({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Title>) {
+  return (
+    <SheetPrimitive.Title
+      data-slot="sheet-title"
+      className={cn("text-foreground font-semibold", className)}
+      {...props}
+    />
+  )
+}
+
+function SheetDescription({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Description>) {
+  return (
+    <SheetPrimitive.Description
+      data-slot="sheet-description"
+      className={cn("text-muted-foreground text-sm", className)}
+      {...props}
+    />
+  )
+}
+
+export {
+  Sheet,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
+}
+
+
+This is the file src/components/ui/switch.tsx =
+"use client"
+
+import * as React from "react"
+import * as SwitchPrimitive from "@radix-ui/react-switch"
+
+import { cn } from "@/lib/utils"
+
+function Switch({
+  className,
+  ...props
+}: React.ComponentProps<typeof SwitchPrimitive.Root>) {
+  return (
+    <SwitchPrimitive.Root
+      data-slot="switch"
+      className={cn(
+        "peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      )}
+      {...props}
+    >
+      <SwitchPrimitive.Thumb
+        data-slot="switch-thumb"
+        className={cn(
+          "bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0"
+        )}
+      />
+    </SwitchPrimitive.Root>
+  )
+}
+
+export { Switch }
+
+
+This is the file src/components/ui/table.tsx =
+"use client"
+
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+function Table({ className, ...props }: React.ComponentProps<"table">) {
+  return (
+    <div
+      data-slot="table-container"
+      className="relative w-full overflow-x-auto"
+    >
+      <table
+        data-slot="table"
+        className={cn("w-full caption-bottom text-sm", className)}
+        {...props}
+      />
+    </div>
+  )
+}
+
+function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
+  return (
+    <thead
+      data-slot="table-header"
+      className={cn("[&_tr]:border-b", className)}
+      {...props}
+    />
+  )
+}
+
+function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
+  return (
+    <tbody
+      data-slot="table-body"
+      className={cn("[&_tr:last-child]:border-0", className)}
+      {...props}
+    />
+  )
+}
+
+function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
+  return (
+    <tfoot
+      data-slot="table-footer"
+      className={cn(
+        "bg-muted/50 border-t font-medium [&>tr]:last:border-b-0",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
+  return (
+    <tr
+      data-slot="table-row"
+      className={cn(
+        "hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableHead({ className, ...props }: React.ComponentProps<"th">) {
+  return (
+    <th
+      data-slot="table-head"
+      className={cn(
+        "text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableCell({ className, ...props }: React.ComponentProps<"td">) {
+  return (
+    <td
+      data-slot="table-cell"
+      className={cn(
+        "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableCaption({
+  className,
+  ...props
+}: React.ComponentProps<"caption">) {
+  return (
+    <caption
+      data-slot="table-caption"
+      className={cn("text-muted-foreground mt-4 text-sm", className)}
+      {...props}
+    />
+  )
+}
+
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+}
+
+
+This is the file src/components/ui/tabs.tsx =
+"use client"
+
+import * as React from "react"
+import * as TabsPrimitive from "@radix-ui/react-tabs"
+
+import { cn } from "@/lib/utils"
+
+function Tabs({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+  return (
+    <TabsPrimitive.Root
+      data-slot="tabs"
+      className={cn("flex flex-col gap-2", className)}
+      {...props}
+    />
+  )
+}
+
+function TabsList({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.List>) {
+  return (
+    <TabsPrimitive.List
+      data-slot="tabs-list"
+      className={cn(
+        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TabsTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
+  return (
+    <TabsPrimitive.Trigger
+      data-slot="tabs-trigger"
+      className={cn(
+        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TabsContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Content>) {
+  return (
+    <TabsPrimitive.Content
+      data-slot="tabs-content"
+      className={cn("flex-1 outline-none", className)}
+      {...props}
+    />
+  )
+}
+
+export { Tabs, TabsList, TabsTrigger, TabsContent }
+
+
+This is the file src/components/ui/tooltip.tsx =
+"use client"
+
+import * as React from "react"
+import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+
+import { cn } from "@/lib/utils"
+
+function TooltipProvider({
+  delayDuration = 0,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+  return (
+    <TooltipPrimitive.Provider
+      data-slot="tooltip-provider"
+      delayDuration={delayDuration}
+      {...props}
+    />
+  )
+}
+
+function Tooltip({
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Root>) {
+  return (
+    <TooltipProvider>
+      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+    </TooltipProvider>
+  )
+}
+
+function TooltipTrigger({
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
+  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
+}
+
+function TooltipContent({
+  className,
+  sideOffset = 0,
+  children,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
+  return (
+    <TooltipPrimitive.Portal>
+      <TooltipPrimitive.Content
+        data-slot="tooltip-content"
+        sideOffset={sideOffset}
+        className={cn(
+          "bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md px-3 py-1.5 text-xs text-balance",
+          className
+        )}
+        {...props}
+      >
+        {children}
+        <TooltipPrimitive.Arrow className="bg-primary fill-primary z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" />
+      </TooltipPrimitive.Content>
+    </TooltipPrimitive.Portal>
+  )
+}
+
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+
+
+This is the file src/lib/utils.ts =
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+
+This is the file src/middleware.ts =
+// src/middleware.ts
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+
+// Public routes (no auth needed)
+const isPublicRoute = createRouteMatcher([
+  "/", // public home
+  "/login(.*)",
+  "/signup(.*)",
+  "/forgot-password(.*)",
+  "/sso-callback(.*)",
+  "/favicon.ico",
+]);
+
+export default clerkMiddleware(async (auth, req) => {
+  const { userId, redirectToSignIn } = await auth();
+  const url = req.nextUrl;
+
+  // Signed-out trying to access protected — send to sign-in
+  if (!userId && !isPublicRoute(req)) {
+    return redirectToSignIn();
+  }
+
+  // Signed-in on a public page — bounce to dashboard
+  if (userId && isPublicRoute(req)) {
+    url.pathname = "/dashboard";
+    return NextResponse.redirect(url);
+  }
+
+  return NextResponse.next();
+});
+
+// Make sure middleware runs for all app pages & API, but skip static assets
+export const config = {
+  matcher: [
+    // Run on all paths except static files, Next internals, and image optimization
+    "/((?!_next/static|_next/image|assets|images|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|map|txt|woff2?|ttf)).*)",
+    // And always run for API routes
+    "/(api|trpc)(.*)",
+  ],
+};
+
+
+This is the file tsconfig.json =
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+
+
+--- Project tree (full) ---
+├─ public
+│  ├─ file.svg
+│  ├─ globe.svg
+│  ├─ next.svg
+│  ├─ vercel.svg
+│  └─ window.svg
+├─ src
+│  ├─ app
+│  │  ├─ (app)
+│  │  │  ├─ account
+│  │  │  │  └─ [[...rest]]
+│  │  │  │     ├─ account.module.css
+│  │  │  │     └─ page.tsx
+│  │  │  ├─ billing
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ dashboard
+│  │  │  │  └─ page.tsx
+│  │  │  └─ layout.tsx
+│  │  ├─ (public)
+│  │  │  ├─ forgot-password
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ login
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ signup
+│  │  │  │  ├─ actions.ts
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ layout.tsx
+│  │  │  └─ page.tsx
+│  │  ├─ api
+│  │  │  ├─ billing
+│  │  │  │  └─ portal
+│  │  │  │     └─ route.ts
+│  │  │  └─ webhooks
+│  │  │     └─ stripe
+│  │  │        └─ route.ts
+│  │  ├─ sso-callback
+│  │  │  └─ [[...slug]]
+│  │  │     └─ page.tsx
+│  │  ├─ favicon.ico
+│  │  ├─ globals.css
+│  │  └─ layout.tsx
+│  ├─ components
+│  │  ├─ auth
+│  │  │  └─ SignupForm.tsx
+│  │  ├─ Button_Switches
+│  │  │  └─ ThemeSwitch.tsx
+│  │  ├─ Navigation
+│  │  │  ├─ AppSidebar.tsx
+│  │  │  ├─ AppTopbar.tsx
+│  │  │  ├─ Footer.tsx
+│  │  │  └─ Navbar.tsx
+│  │  ├─ ui
+│  │  │  ├─ accordion.tsx
+│  │  │  ├─ avatar.tsx
+│  │  │  ├─ badge.tsx
+│  │  │  ├─ button.tsx
+│  │  │  ├─ card.tsx
+│  │  │  ├─ checkbox.tsx
+│  │  │  ├─ dropdown-menu.tsx
+│  │  │  ├─ input-otp.tsx
+│  │  │  ├─ input.tsx
+│  │  │  ├─ label.tsx
+│  │  │  ├─ navigation-menu.tsx
+│  │  │  ├─ popover.tsx
+│  │  │  ├─ progress.tsx
+│  │  │  ├─ scroll-area.tsx
+│  │  │  ├─ separator.tsx
+│  │  │  ├─ sheet.tsx
+│  │  │  ├─ switch.tsx
+│  │  │  ├─ table.tsx
+│  │  │  ├─ tabs.tsx
+│  │  │  └─ tooltip.tsx
+│  │  └─ theme-provider.tsx
+│  ├─ lib
+│  │  └─ utils.ts
+│  └─ middleware.ts
+├─ .gitignore
+├─ components.json
+├─ next-env.d.ts
+├─ next.config.ts
+├─ package.json
+├─ postcss.config.mjs
+├─ README.md
+└─ tsconfig.json
