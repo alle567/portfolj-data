@@ -46,6 +46,12 @@ function safeRedirect(path?: string | null) {
   return path;
 }
 
+async function bootstrapBilling() {
+  try {
+    await fetch("/api/billing/bootstrap", { method: "POST" });
+  } catch {}
+}
+
 const SS_EMAIL = "signup:email";
 const SS_PASSWORD = "signup:password";
 
@@ -161,6 +167,7 @@ export default function SignupForm() {
           await setActive({ session: createdSessionId });
           sessionStorage.removeItem(SS_EMAIL);
           sessionStorage.removeItem(SS_PASSWORD);
+          await bootstrapBilling();
           router.push(redirectTo);
           return true;
         }
@@ -181,6 +188,7 @@ export default function SignupForm() {
             await setActive({ session: r.createdSessionId });
             sessionStorage.removeItem(SS_EMAIL);
             sessionStorage.removeItem(SS_PASSWORD);
+            await bootstrapBilling(); // ⬅️ add this line
             router.push(redirectTo);
             return true;
           }
@@ -323,6 +331,7 @@ export default function SignupForm() {
         await setActive({ session: res.createdSessionId });
         sessionStorage.removeItem(SS_EMAIL);
         sessionStorage.removeItem(SS_PASSWORD);
+        await bootstrapBilling();
         router.push(redirectTo);
         return;
       }

@@ -17,9 +17,9 @@ import { useClerk, useUser } from "@clerk/nextjs";
 import {
   Menu,
   HelpCircle,
+  User as UserIcon,
   CreditCard,
   Sparkles,
-  User as UserIcon,
   LogOut,
 } from "lucide-react";
 import { navItems } from "./AppSidebar";
@@ -34,6 +34,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 
 /** Page-specific subnav registry */
 const contextNavRegistry: Array<{
@@ -54,6 +55,7 @@ export default function AppTopbar() {
   const { user } = useUser();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [userPlan, setUserPlan] = useState<"free" | "pro" | null>(null);
   const headerRef = useRef<HTMLElement | null>(null);
 
   const subnav = useMemo(
@@ -85,7 +87,26 @@ export default function AppTopbar() {
     return () => window.removeEventListener("resize", setVar);
   }, [pathname, subnav, open]);
 
-  // initials for avatar fallback (no background)
+  // fetch user's billing plan for mobile
+  useEffect(() => {
+    const fetchUserPlan = async () => {
+      try {
+        const response = await fetch("/api/billing/status");
+        if (response.ok) {
+          const data = await response.json();
+          setUserPlan(data.plan);
+        }
+      } catch (error) {
+        console.error("Failed to fetch user plan:", error);
+      }
+    };
+
+    if (user) {
+      fetchUserPlan();
+    }
+  }, [user]);
+
+  // initials for avatar fallback
   const initials = useMemo(() => {
     const f = user?.firstName?.[0]?.toUpperCase() ?? "";
     const l = user?.lastName?.[0]?.toUpperCase() ?? "";
@@ -138,6 +159,59 @@ export default function AppTopbar() {
 
               <ScrollArea className="flex-1 px-3">
                 <nav className="py-3 space-y-1">
+                  {/* User info section for mobile */}
+                  {user && (
+                    <div className="mb-4 p-3 bg-muted/50 rounded-lg">
+                      <div className="flex flex-col gap-1">
+                        <span className="text-sm font-medium truncate">
+                          {user?.fullName ?? "Signed in"}
+                        </span>
+                        <span className="text-xs text-muted-foreground truncate">
+                          {user?.primaryEmailAddress?.emailAddress ?? ""}
+                        </span>
+                        {userPlan && (
+                          <Badge
+                            variant={
+                              userPlan === "pro" ? "default" : "secondary"
+                            }
+                            className="text-xs px-2 py-0.5 h-5 w-fit mt-1"
+                          >
+                            {userPlan.toUpperCase()} TIER
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* User menu items */}
+                  <div className="space-y-1 mb-4">
+                    <Button
+                      asChild
+                      variant="ghost"
+                      className="w-full justify-start gap-3"
+                      onClick={() => setOpen(false)}
+                    >
+                      <Link href="/account">
+                        <UserIcon className="h-4 w-4" />
+                        <span>Account</span>
+                      </Link>
+                    </Button>
+                    <Button
+                      asChild
+                      variant="ghost"
+                      className="w-full justify-start gap-3"
+                      onClick={() => setOpen(false)}
+                    >
+                      <Link href="/billing">
+                        <CreditCard className="h-4 w-4" />
+                        <span>Billing & Plans</span>
+                      </Link>
+                    </Button>
+                  </div>
+
+                  <Separator className="my-3" />
+
+                  {/* Main navigation items */}
                   {navItems.map((item) => {
                     const active =
                       pathname === item.href ||
@@ -180,12 +254,14 @@ export default function AppTopbar() {
                 <Button
                   size="sm"
                   variant="outline"
+                  className="text-destructive focus:text-destructive"
                   onClick={() => {
                     setOpen(false);
                     signOut({ redirectUrl: "/" });
                   }}
                 >
-                  Log out
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Sign out
                 </Button>
               </div>
             </SheetContent>
@@ -227,73 +303,9 @@ export default function AppTopbar() {
             : null}
         </div>
 
-        {/* COL 3 — custom user menu using shadcn (no background behind avatar) */}
+        {/* COL 3 — empty since user menu moved to sidebar */}
         <div className="flex items-center gap-2 justify-self-end pr-1 md:pr-3 md:pl-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              {/* 👇 Add cursor-pointer so hand shows on hover */}
-              <button
-                className={cn(
-                  "rounded-full cursor-pointer",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                  "ring-offset-2 ring-offset-background"
-                )}
-                aria-label="Open user menu"
-              >
-                <Avatar className="h-8 w-8 select-none">
-                  <AvatarImage
-                    src={user?.imageUrl ?? undefined}
-                    alt={user?.fullName ?? "User"}
-                  />
-                  <AvatarFallback className="bg-transparent text-foreground text-xs">
-                    {initials}
-                  </AvatarFallback>
-                </Avatar>
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              className="w-64 p-1"
-              sideOffset={8}
-            >
-              <DropdownMenuLabel className="flex flex-col gap-0.5">
-                <span className="text-sm font-medium">
-                  {user?.fullName ?? "Signed in"}
-                </span>
-                <span className="text-xs text-muted-foreground truncate">
-                  {user?.primaryEmailAddress?.emailAddress ?? ""}
-                </span>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {/* 👇 Force pointer cursor on items (shadcn sets cursor-default) */}
-              <DropdownMenuItem asChild className="!cursor-pointer">
-                <Link href="/account" className="flex items-center gap-2">
-                  <UserIcon className="h-4 w-4" />
-                  Account
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="!cursor-pointer">
-                <Link href="/billing" className="flex items-center gap-2">
-                  <CreditCard className="h-4 w-4" />
-                  Billing
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="!cursor-pointer">
-                <Link href="/pricing" className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4" />
-                  Pricing
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem
-                className="text-destructive focus:text-destructive !cursor-pointer"
-                onClick={() => signOut({ redirectUrl: "/" })}
-              >
-                <LogOut className="h-4 w-4 mr-2" />
-                Sign out
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {/* User menu now in sidebar */}
         </div>
       </div>
     </header>
