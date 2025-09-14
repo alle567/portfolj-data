@@ -19,36 +19,12 @@ import {
   HelpCircle,
   User as UserIcon,
   CreditCard,
-  Sparkles,
   LogOut,
 } from "lucide-react";
 import { navItems } from "./AppSidebar";
 import { cn } from "@/lib/utils";
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-
-/** Page-specific subnav registry */
-const contextNavRegistry: Array<{
-  match: (path: string) => boolean;
-  items: { label: string; href: string }[];
-}> = [
-  {
-    match: (p) => p.startsWith("/account"),
-    items: [
-      { label: "Account", href: "/account" },
-      { label: "Security", href: "/account/security" },
-    ],
-  },
-];
 
 export default function AppTopbar() {
   const { signOut } = useClerk();
@@ -57,24 +33,6 @@ export default function AppTopbar() {
   const [open, setOpen] = useState(false);
   const [userPlan, setUserPlan] = useState<"free" | "pro" | null>(null);
   const headerRef = useRef<HTMLElement | null>(null);
-
-  const subnav = useMemo(
-    () => contextNavRegistry.find((r) => r.match(pathname)),
-    [pathname]
-  );
-
-  // pick the single best active tab (longest prefix)
-  const activeHref = useMemo(() => {
-    if (!subnav?.items?.length) return "";
-    let best = "";
-    for (const i of subnav.items) {
-      if (pathname === i.href || pathname.startsWith(i.href + "/")) {
-        if (i.href.length > best.length) best = i.href;
-      }
-    }
-    if (!best) best = subnav.items.find((i) => i.href === pathname)?.href ?? "";
-    return best;
-  }, [pathname, subnav]);
 
   // expose topbar height for pages that need it
   useEffect(() => {
@@ -85,7 +43,7 @@ export default function AppTopbar() {
     setVar();
     window.addEventListener("resize", setVar);
     return () => window.removeEventListener("resize", setVar);
-  }, [pathname, subnav, open]);
+  }, [pathname, open]);
 
   // fetch user's billing plan for mobile
   useEffect(() => {
@@ -106,7 +64,7 @@ export default function AppTopbar() {
     }
   }, [user]);
 
-  // initials for avatar fallback
+  // initials for avatar fallback (if you ever add avatar back)
   const initials = useMemo(() => {
     const f = user?.firstName?.[0]?.toUpperCase() ?? "";
     const l = user?.lastName?.[0]?.toUpperCase() ?? "";
@@ -275,38 +233,11 @@ export default function AppTopbar() {
         {/* md+ spacer cell keeps column 1 width */}
         <div className="hidden md:block" />
 
-        {/* COL 2 — subnav (flush-left to content edge on md+) */}
-        <div className="hidden md:flex items-center gap-1 overflow-x-auto no-scrollbar justify-self-start">
-          {subnav?.items?.length
-            ? subnav.items.map((t) => {
-                const active = t.href === activeHref;
-                return (
-                  <Button
-                    key={t.href}
-                    asChild
-                    size="sm"
-                    variant={active ? "secondary" : "ghost"}
-                    className={cn(
-                      "h-8 px-3 rounded-md",
-                      active && "text-foreground shadow-sm"
-                    )}
-                  >
-                    <Link
-                      href={t.href}
-                      aria-current={active ? "page" : undefined}
-                    >
-                      {t.label}
-                    </Link>
-                  </Button>
-                );
-              })
-            : null}
-        </div>
+        {/* COL 2 — (subnav removed) */}
+        <div className="hidden md:flex items-center gap-1 overflow-x-auto no-scrollbar justify-self-start" />
 
-        {/* COL 3 — empty since user menu moved to sidebar */}
-        <div className="flex items-center gap-2 justify-self-end pr-1 md:pr-3 md:pl-2">
-          {/* User menu now in sidebar */}
-        </div>
+        {/* COL 3 — empty (user menu lives in sidebar) */}
+        <div className="flex items-center gap-2 justify-self-end pr-1 md:pr-3 md:pl-2" />
       </div>
     </header>
   );
